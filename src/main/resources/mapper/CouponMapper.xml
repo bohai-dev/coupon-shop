@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiaosheng.coupon.dao.CouponMapper" >
+  <resultMap id="BaseResultMap" type="com.qiaosheng.coupon.domain.Coupon" >
+    <id column="COUPON_ID" property="couponId" jdbcType="VARCHAR" />
+    <result column="SHOP_ID" property="shopId" jdbcType="VARCHAR" />
+    <result column="SHARE_TIMES" property="shareTimes" jdbcType="DECIMAL" />
+    <result column="COUPON_TYPE" property="couponType" jdbcType="VARCHAR" />
+    <result column="COUPON_VALUE" property="couponValue" jdbcType="VARCHAR" />
+    <result column="BACKUP_COLUMN1" property="backupColumn1" jdbcType="VARCHAR" />
+    <result column="BACKUP_COLUMN2" property="backupColumn2" jdbcType="VARCHAR" />
+    <result column="IS_DELETE" property="isDelete" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="SCAN_TIMES" property="scanTimes" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    COUPON_ID, SHOP_ID, SHARE_TIMES, COUPON_TYPE, COUPON_VALUE, BACKUP_COLUMN1, BACKUP_COLUMN2, 
+    IS_DELETE, CREATE_TIME, UPDATE_TIME, SCAN_TIMES
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from COUPON
+    where COUPON_ID = #{couponId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from COUPON
+    where COUPON_ID = #{couponId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qiaosheng.coupon.domain.Coupon" >
+    insert into COUPON (COUPON_ID, SHOP_ID, SHARE_TIMES, 
+      COUPON_TYPE, COUPON_VALUE, BACKUP_COLUMN1, 
+      BACKUP_COLUMN2, IS_DELETE, CREATE_TIME, 
+      UPDATE_TIME, SCAN_TIMES)
+    values (#{couponId,jdbcType=VARCHAR}, #{shopId,jdbcType=VARCHAR}, #{shareTimes,jdbcType=DECIMAL}, 
+      #{couponType,jdbcType=VARCHAR}, #{couponValue,jdbcType=VARCHAR}, #{backupColumn1,jdbcType=VARCHAR}, 
+      #{backupColumn2,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{scanTimes,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiaosheng.coupon.domain.Coupon" >
+    insert into COUPON
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="couponId != null" >
+        COUPON_ID,
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID,
+      </if>
+      <if test="shareTimes != null" >
+        SHARE_TIMES,
+      </if>
+      <if test="couponType != null" >
+        COUPON_TYPE,
+      </if>
+      <if test="couponValue != null" >
+        COUPON_VALUE,
+      </if>
+      <if test="backupColumn1 != null" >
+        BACKUP_COLUMN1,
+      </if>
+      <if test="backupColumn2 != null" >
+        BACKUP_COLUMN2,
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="scanTimes != null" >
+        SCAN_TIMES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="couponId != null" >
+        #{couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTimes != null" >
+        #{shareTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="couponType != null" >
+        #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="couponValue != null" >
+        #{couponValue,jdbcType=VARCHAR},
+      </if>
+      <if test="backupColumn1 != null" >
+        #{backupColumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="backupColumn2 != null" >
+        #{backupColumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scanTimes != null" >
+        #{scanTimes,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.Coupon" >
+    update COUPON
+    <set >
+      <if test="shopId != null" >
+        SHOP_ID = #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTimes != null" >
+        SHARE_TIMES = #{shareTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="couponType != null" >
+        COUPON_TYPE = #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="couponValue != null" >
+        COUPON_VALUE = #{couponValue,jdbcType=VARCHAR},
+      </if>
+      <if test="backupColumn1 != null" >
+        BACKUP_COLUMN1 = #{backupColumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="backupColumn2 != null" >
+        BACKUP_COLUMN2 = #{backupColumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scanTimes != null" >
+        SCAN_TIMES = #{scanTimes,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where COUPON_ID = #{couponId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiaosheng.coupon.domain.Coupon" >
+    update COUPON
+    set SHOP_ID = #{shopId,jdbcType=VARCHAR},
+      SHARE_TIMES = #{shareTimes,jdbcType=DECIMAL},
+      COUPON_TYPE = #{couponType,jdbcType=VARCHAR},
+      COUPON_VALUE = #{couponValue,jdbcType=VARCHAR},
+      BACKUP_COLUMN1 = #{backupColumn1,jdbcType=VARCHAR},
+      BACKUP_COLUMN2 = #{backupColumn2,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      SCAN_TIMES = #{scanTimes,jdbcType=DECIMAL}
+    where COUPON_ID = #{couponId,jdbcType=VARCHAR}
+  </update>
+</mapper>

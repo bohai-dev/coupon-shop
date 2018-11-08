@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiaosheng.coupon.dao.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.qiaosheng.coupon.domain.Shop" >
+    <id column="SHOP_ID" property="shopId" jdbcType="VARCHAR" />
+    <result column="SHOP_NAME" property="shopName" jdbcType="VARCHAR" />
+    <result column="INTRO_IMAGES" property="introImages" jdbcType="VARCHAR" />
+    <result column="SHOP_ADDRESS" property="shopAddress" jdbcType="VARCHAR" />
+    <result column="CONTACT_WAY" property="contactWay" jdbcType="VARCHAR" />
+    <result column="FEATURES" property="features" jdbcType="VARCHAR" />
+    <result column="SHOP_INTRO" property="shopIntro" jdbcType="VARCHAR" />
+    <result column="OPEN_TIME" property="openTime" jdbcType="VARCHAR" />
+    <result column="HEIGHT_TIME" property="heightTime" jdbcType="VARCHAR" />
+    <result column="INDOOR_DEVICE" property="indoorDevice" jdbcType="VARCHAR" />
+    <result column="SIGN_DISH" property="signDish" jdbcType="VARCHAR" />
+    <result column="SHOP_ACTIVITY" property="shopActivity" jdbcType="VARCHAR" />
+    <result column="SCAN_TIMES" property="scanTimes" jdbcType="DECIMAL" />
+    <result column="ADMIN_USER_ID" property="adminUserId" jdbcType="VARCHAR" />
+    <result column="BACKUP_COUMN1" property="backupCoumn1" jdbcType="VARCHAR" />
+    <result column="BACKUP_COUMN2" property="backupCoumn2" jdbcType="VARCHAR" />
+    <result column="CLASS_ID" property="classId" jdbcType="VARCHAR" />
+    <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATA_TIME" property="updataTime" jdbcType="TIMESTAMP" />
+    <result column="WARM_PROMPT" property="warmPrompt" jdbcType="VARCHAR" />
+    <result column="IS_DELETE" property="isDelete" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SHOP_ID, SHOP_NAME, INTRO_IMAGES, SHOP_ADDRESS, CONTACT_WAY, FEATURES, SHOP_INTRO, 
+    OPEN_TIME, HEIGHT_TIME, INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, SCAN_TIMES, ADMIN_USER_ID, 
+    BACKUP_COUMN1, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
+    IS_DELETE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SHOP
+    where SHOP_ID = #{shopId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SHOP
+    where SHOP_ID = #{shopId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qiaosheng.coupon.domain.Shop" >
+    insert into SHOP (SHOP_ID, SHOP_NAME, INTRO_IMAGES, 
+      SHOP_ADDRESS, CONTACT_WAY, FEATURES, 
+      SHOP_INTRO, OPEN_TIME, HEIGHT_TIME, 
+      INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, 
+      SCAN_TIMES, ADMIN_USER_ID, BACKUP_COUMN1, 
+      BACKUP_COUMN2, CLASS_ID, IS_HOT, 
+      CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
+      IS_DELETE)
+    values (#{shopId,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{introImages,jdbcType=VARCHAR}, 
+      #{shopAddress,jdbcType=VARCHAR}, #{contactWay,jdbcType=VARCHAR}, #{features,jdbcType=VARCHAR}, 
+      #{shopIntro,jdbcType=VARCHAR}, #{openTime,jdbcType=VARCHAR}, #{heightTime,jdbcType=VARCHAR}, 
+      #{indoorDevice,jdbcType=VARCHAR}, #{signDish,jdbcType=VARCHAR}, #{shopActivity,jdbcType=VARCHAR}, 
+      #{scanTimes,jdbcType=DECIMAL}, #{adminUserId,jdbcType=VARCHAR}, #{backupCoumn1,jdbcType=VARCHAR}, 
+      #{backupCoumn2,jdbcType=VARCHAR}, #{classId,jdbcType=VARCHAR}, #{isHot,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP}, #{warmPrompt,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiaosheng.coupon.domain.Shop" >
+    insert into SHOP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="shopId != null" >
+        SHOP_ID,
+      </if>
+      <if test="shopName != null" >
+        SHOP_NAME,
+      </if>
+      <if test="introImages != null" >
+        INTRO_IMAGES,
+      </if>
+      <if test="shopAddress != null" >
+        SHOP_ADDRESS,
+      </if>
+      <if test="contactWay != null" >
+        CONTACT_WAY,
+      </if>
+      <if test="features != null" >
+        FEATURES,
+      </if>
+      <if test="shopIntro != null" >
+        SHOP_INTRO,
+      </if>
+      <if test="openTime != null" >
+        OPEN_TIME,
+      </if>
+      <if test="heightTime != null" >
+        HEIGHT_TIME,
+      </if>
+      <if test="indoorDevice != null" >
+        INDOOR_DEVICE,
+      </if>
+      <if test="signDish != null" >
+        SIGN_DISH,
+      </if>
+      <if test="shopActivity != null" >
+        SHOP_ACTIVITY,
+      </if>
+      <if test="scanTimes != null" >
+        SCAN_TIMES,
+      </if>
+      <if test="adminUserId != null" >
+        ADMIN_USER_ID,
+      </if>
+      <if test="backupCoumn1 != null" >
+        BACKUP_COUMN1,
+      </if>
+      <if test="backupCoumn2 != null" >
+        BACKUP_COUMN2,
+      </if>
+      <if test="classId != null" >
+        CLASS_ID,
+      </if>
+      <if test="isHot != null" >
+        IS_HOT,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updataTime != null" >
+        UPDATA_TIME,
+      </if>
+      <if test="warmPrompt != null" >
+        WARM_PROMPT,
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="shopId != null" >
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="introImages != null" >
+        #{introImages,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAddress != null" >
+        #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contactWay != null" >
+        #{contactWay,jdbcType=VARCHAR},
+      </if>
+      <if test="features != null" >
+        #{features,jdbcType=VARCHAR},
+      </if>
+      <if test="shopIntro != null" >
+        #{shopIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null" >
+        #{openTime,jdbcType=VARCHAR},
+      </if>
+      <if test="heightTime != null" >
+        #{heightTime,jdbcType=VARCHAR},
+      </if>
+      <if test="indoorDevice != null" >
+        #{indoorDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="signDish != null" >
+        #{signDish,jdbcType=VARCHAR},
+      </if>
+      <if test="shopActivity != null" >
+        #{shopActivity,jdbcType=VARCHAR},
+      </if>
+      <if test="scanTimes != null" >
+        #{scanTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="adminUserId != null" >
+        #{adminUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="backupCoumn1 != null" >
+        #{backupCoumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="backupCoumn2 != null" >
+        #{backupCoumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="classId != null" >
+        #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null" >
+        #{isHot,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updataTime != null" >
+        #{updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="warmPrompt != null" >
+        #{warmPrompt,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.Shop" >
+    update SHOP
+    <set >
+      <if test="shopName != null" >
+        SHOP_NAME = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="introImages != null" >
+        INTRO_IMAGES = #{introImages,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAddress != null" >
+        SHOP_ADDRESS = #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contactWay != null" >
+        CONTACT_WAY = #{contactWay,jdbcType=VARCHAR},
+      </if>
+      <if test="features != null" >
+        FEATURES = #{features,jdbcType=VARCHAR},
+      </if>
+      <if test="shopIntro != null" >
+        SHOP_INTRO = #{shopIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null" >
+        OPEN_TIME = #{openTime,jdbcType=VARCHAR},
+      </if>
+      <if test="heightTime != null" >
+        HEIGHT_TIME = #{heightTime,jdbcType=VARCHAR},
+      </if>
+      <if test="indoorDevice != null" >
+        INDOOR_DEVICE = #{indoorDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="signDish != null" >
+        SIGN_DISH = #{signDish,jdbcType=VARCHAR},
+      </if>
+      <if test="shopActivity != null" >
+        SHOP_ACTIVITY = #{shopActivity,jdbcType=VARCHAR},
+      </if>
+      <if test="scanTimes != null" >
+        SCAN_TIMES = #{scanTimes,jdbcType=DECIMAL},
+      </if>
+      <if test="adminUserId != null" >
+        ADMIN_USER_ID = #{adminUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="backupCoumn1 != null" >
+        BACKUP_COUMN1 = #{backupCoumn1,jdbcType=VARCHAR},
+      </if>
+      <if test="backupCoumn2 != null" >
+        BACKUP_COUMN2 = #{backupCoumn2,jdbcType=VARCHAR},
+      </if>
+      <if test="classId != null" >
+        CLASS_ID = #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null" >
+        IS_HOT = #{isHot,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updataTime != null" >
+        UPDATA_TIME = #{updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="warmPrompt != null" >
+        WARM_PROMPT = #{warmPrompt,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SHOP_ID = #{shopId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiaosheng.coupon.domain.Shop" >
+    update SHOP
+    set SHOP_NAME = #{shopName,jdbcType=VARCHAR},
+      INTRO_IMAGES = #{introImages,jdbcType=VARCHAR},
+      SHOP_ADDRESS = #{shopAddress,jdbcType=VARCHAR},
+      CONTACT_WAY = #{contactWay,jdbcType=VARCHAR},
+      FEATURES = #{features,jdbcType=VARCHAR},
+      SHOP_INTRO = #{shopIntro,jdbcType=VARCHAR},
+      OPEN_TIME = #{openTime,jdbcType=VARCHAR},
+      HEIGHT_TIME = #{heightTime,jdbcType=VARCHAR},
+      INDOOR_DEVICE = #{indoorDevice,jdbcType=VARCHAR},
+      SIGN_DISH = #{signDish,jdbcType=VARCHAR},
+      SHOP_ACTIVITY = #{shopActivity,jdbcType=VARCHAR},
+      SCAN_TIMES = #{scanTimes,jdbcType=DECIMAL},
+      ADMIN_USER_ID = #{adminUserId,jdbcType=VARCHAR},
+      BACKUP_COUMN1 = #{backupCoumn1,jdbcType=VARCHAR},
+      BACKUP_COUMN2 = #{backupCoumn2,jdbcType=VARCHAR},
+      CLASS_ID = #{classId,jdbcType=VARCHAR},
+      IS_HOT = #{isHot,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATA_TIME = #{updataTime,jdbcType=TIMESTAMP},
+      WARM_PROMPT = #{warmPrompt,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=VARCHAR}
+    where SHOP_ID = #{shopId,jdbcType=VARCHAR}
+  </update>
+</mapper>
