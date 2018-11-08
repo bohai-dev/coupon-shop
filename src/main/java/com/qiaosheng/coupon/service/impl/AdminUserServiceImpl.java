@@ -5,7 +5,6 @@ import com.qiaosheng.coupon.domain.AdminUser;
 import com.qiaosheng.coupon.exception.CouponException;
 import com.qiaosheng.coupon.exception.ErrorConstant;
 import com.qiaosheng.coupon.service.AdminUserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

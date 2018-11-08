@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>coupon</name>
-    <description>转发优惠券获取奖励</description>
+    <description>转发店铺信息获取优惠券</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

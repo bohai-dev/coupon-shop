@@ -48,7 +48,7 @@ public class ShopServiceImpl  implements ShopService {
                coupon.setUpdateTime(new Date());
 
                 //设置优惠券编号
-                String couponId=couponMapper.generateUserId();
+                String couponId=couponMapper.generateCouponId();
                 String couponNo= CommonUtils.getNo(Integer.parseInt(couponId));
                 coupon.setCouponId(couponNo);
 
@@ -94,7 +94,7 @@ public class ShopServiceImpl  implements ShopService {
                 coupon.setUpdateTime(new Date());
 
                 //设置优惠券编号
-                String couponId=couponMapper.generateUserId();
+                String couponId=couponMapper.generateCouponId();
                 String couponNo= CommonUtils.getNo(Integer.parseInt(couponId));
                 coupon.setCouponId(couponNo);
 

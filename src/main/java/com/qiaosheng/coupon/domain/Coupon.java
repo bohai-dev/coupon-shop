@@ -118,4 +118,21 @@ public class Coupon {
     public void setScanTimes(Integer scanTimes) {
         this.scanTimes = scanTimes;
     }
+
+    @Override
+    public String toString() {
+        return "Coupon{" +
+                "couponId='" + couponId + '\'' +
+                ", shopId='" + shopId + '\'' +
+                ", shareTimes=" + shareTimes +
+                ", couponType='" + couponType + '\'' +
+                ", couponValue='" + couponValue + '\'' +
+                ", backupColumn1='" + backupColumn1 + '\'' +
+                ", backupColumn2='" + backupColumn2 + '\'' +
+                ", isDelete='" + isDelete + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", scanTimes=" + scanTimes +
+                '}';
+    }
 }

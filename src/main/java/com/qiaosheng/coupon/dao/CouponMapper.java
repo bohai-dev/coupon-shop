@@ -23,7 +23,7 @@ public interface CouponMapper {
     int updateByPrimaryKey(Coupon record);
 
     @Select(value="select COUPON_SEQ.NEXTVAL from dual")
-    String generateUserId();
+    String generateCouponId();
 
     //根据店铺编号查询优惠券列表
     @Select("select * from coupon where shop_id=#{shopId} and is_delete='0'")

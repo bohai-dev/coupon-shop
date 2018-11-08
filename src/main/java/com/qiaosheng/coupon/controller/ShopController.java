@@ -25,7 +25,7 @@ public class ShopController {
     ShopService shopService;
 
     @RequestMapping("/add")
-    public ResponseHeader add(@RequestBody @Valid Shop shop){
+    public ResponseHeader addShop(@RequestBody @Valid Shop shop){
 
         ResponseHeader responseHeader=new ResponseHeader();
         shopService.add(shop);
@@ -44,6 +44,23 @@ public class ShopController {
         returnBody.setData(shopList);
 
         return  returnBody;
+    }
+
+    /**
+     * 更新店铺信息
+     * @param shop
+     * @return
+     * @throws CouponException
+     */
+    @RequestMapping("/updateshop")
+    public ResponseHeader updateShop(@RequestBody @Valid Shop shop) throws CouponException{
+        if (StringUtil.isEmpty(shop.getShopId())){
+            throw new CouponException(ErrorConstant.SHOP_ID_REQUIRED);
+        }
+
+        ResponseHeader responseHeader=new ResponseHeader();
+        shopService.updateShop(shop);
+        return  responseHeader;
     }
 
 }

@@ -2,6 +2,7 @@ package com.qiaosheng.coupon.dao;
 
 import com.qiaosheng.coupon.domain.Shop;
 import com.qiaosheng.coupon.utils.CommonUtils;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class ShopMapperTest {
 
     @Autowired
     ShopMapper shopMapper;
+    @Autowired
+    CouponMapper couponMapper;
 
     @Test
     public void generateUserIdTest(){
@@ -29,6 +32,12 @@ public class ShopMapperTest {
         System.out.println(id);
     }
 
+    @Test
+    public void deleteCoupon(){
+        String shopId="00007";
+        int count=couponMapper.deleteByShopId(shopId);
+        Assert.assertEquals((long)count,1L);
+    }
     @Test
     public void isMobile(){
         String str="18305626606";
