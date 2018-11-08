@@ -10,6 +10,8 @@ public enum ErrorConstant {
     PARAMS_VALIDATE_ERROR("0001","数据校验失败"),
     USER_NAME_EXISTS("0002","该用户名已存在"),
     USER_NOT_EXISTS("0003","用户名或密码错误"),
+    USER_ID_REQUIRED("0004","用户id不能为空"),
+
 
 
 
