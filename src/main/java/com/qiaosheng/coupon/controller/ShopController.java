@@ -52,7 +52,7 @@ public class ShopController {
      * @return
      * @throws CouponException
      */
-    @RequestMapping("/updateshop")
+    @RequestMapping("/ ")
     public ResponseHeader updateShop(@RequestBody @Valid Shop shop) throws CouponException{
         if (StringUtil.isEmpty(shop.getShopId())){
             throw new CouponException(ErrorConstant.SHOP_ID_REQUIRED);
