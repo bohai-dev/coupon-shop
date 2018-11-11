@@ -12,6 +12,7 @@ public enum ErrorConstant {
     USER_NOT_EXISTS("0003","用户名或密码错误"),
     USER_ID_REQUIRED("0004","userId不能为空"),
     SHOP_ID_REQUIRED("0005","shopId不能为空"),
+    COUPON_ID_REQUIRED("0006","couponId不能为空"),
 
 
 

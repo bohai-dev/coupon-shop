@@ -16,11 +16,11 @@
     <result column="EXCHANGE_TIMES" property="exchangeTimes" jdbcType="DECIMAL"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    COUPON_ID, SHOP_ID, SHARE_TIMES, COUPON_TYPE, COUPON_VALUE, BACKUP_COLUMN1, BACKUP_COLUMN2, 
+    COUPON_ID, SHOP_ID, SHARE_TIMES, COUPON_TYPE, COUPON_VALUE, BACKUP_COLUMN1, BACKUP_COLUMN2,
     IS_DELETE, CREATE_TIME, UPDATE_TIME, SCAN_TIMES,EXCHANGE_TIMES
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from COUPON
     where COUPON_ID = #{couponId,jdbcType=VARCHAR}
