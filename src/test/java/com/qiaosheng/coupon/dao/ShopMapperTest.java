@@ -1,5 +1,6 @@
 package com.qiaosheng.coupon.dao;
 
+import com.qiaosheng.coupon.domain.Coupon;
 import com.qiaosheng.coupon.domain.Shop;
 import com.qiaosheng.coupon.utils.CommonUtils;
 import org.junit.Assert;
@@ -30,6 +31,19 @@ public class ShopMapperTest {
         String id=shopMapper.generateUserId();
         String number=CommonUtils.getNo(Integer.parseInt(id));
         System.out.println(id);
+    }
+
+    @Test
+    public void addCouponTest(){
+        Coupon coupon=new Coupon();
+       // coupon.setCouponId("00090");
+        coupon.setShopId("shop00001");
+        coupon.setCouponType("1");
+        coupon.setCouponValue("50");
+        coupon.setExchangeTimes(60L);
+        coupon.setScanTimes(100);
+
+        couponMapper.insertSelective(coupon);
     }
 
     @Test

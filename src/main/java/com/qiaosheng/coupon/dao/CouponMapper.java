@@ -12,7 +12,6 @@ import java.util.List;
 public interface CouponMapper {
     int deleteByPrimaryKey(String couponId);
 
-    int insert(Coupon record);
 
     int insertSelective(Coupon record);
 
@@ -20,7 +19,6 @@ public interface CouponMapper {
 
     int updateByPrimaryKeySelective(Coupon record);
 
-    int updateByPrimaryKey(Coupon record);
 
     @Select(value="select COUPON_SEQ.NEXTVAL from dual")
     String generateCouponId();

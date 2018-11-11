@@ -11,12 +11,15 @@ public class Coupon {
     @NotBlank(message = "店铺id不能为空")
     private String shopId;
 
+    //分享次数
     private Long shareTimes;
     @NotBlank(message = "优惠券类型不能为空")
     private String couponType;
     @NotBlank(message = "优惠券面值不能为空")
     private String couponValue;
-
+    //兑换次数
+    @NotBlank(message = "兑换次数不能为空")
+    private Long exchangeTimes;
     private String backupColumn1;
 
     private String backupColumn2;
@@ -119,6 +122,14 @@ public class Coupon {
         this.scanTimes = scanTimes;
     }
 
+    public Long getExchangeTimes() {
+        return exchangeTimes;
+    }
+
+    public void setExchangeTimes(Long exchangeTimes) {
+        this.exchangeTimes = exchangeTimes;
+    }
+
     @Override
     public String toString() {
         return "Coupon{" +
@@ -127,6 +138,7 @@ public class Coupon {
                 ", shareTimes=" + shareTimes +
                 ", couponType='" + couponType + '\'' +
                 ", couponValue='" + couponValue + '\'' +
+                ", exchangeTimes=" + exchangeTimes +
                 ", backupColumn1='" + backupColumn1 + '\'' +
                 ", backupColumn2='" + backupColumn2 + '\'' +
                 ", isDelete='" + isDelete + '\'' +
