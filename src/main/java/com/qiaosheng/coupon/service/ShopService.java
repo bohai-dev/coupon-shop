@@ -12,4 +12,11 @@ public interface ShopService {
     void add(Shop shop);
     List<Shop> selectByUserId(String userId);
     void updateShop(Shop shop);
+
+    /**
+     * 根据条件查询店铺
+     * @param shop
+     * @return
+     */
+    List<Shop> selectByConditions(Shop shop);
 }

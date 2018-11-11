@@ -16,7 +16,7 @@ public enum ErrorConstant {
 
 
 
-
+    SELECT_CONDITIONS_REQUIRED("0999","查询条件不能为空"),
     UNKNOW_EXCEPTION("1000", "程序内部异常");
 
     private String errorCode;

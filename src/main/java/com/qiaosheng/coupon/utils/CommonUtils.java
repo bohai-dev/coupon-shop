@@ -1,6 +1,8 @@
 package com.qiaosheng.coupon.utils;
 
 import java.text.DecimalFormat;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * Cteated by cxy on 2018/11/7
@@ -14,12 +16,25 @@ public class CommonUtils {
      * @param num
      * @return
      */
-  public static String getNo(int num){
+  public static String getShortNo(int num){
       DecimalFormat decimalFormat=new DecimalFormat("00000");
       String str = decimalFormat.format(num);
       System.out.println(str);
       return  str;
   }
+    /**
+     * 根据数字生成指定格式的编号
+     * @param num
+     * @return
+     */
+    public static String getLongNo(int num){
+        DecimalFormat decimalFormat=new DecimalFormat("00000");
+        String str = decimalFormat.format(num);
+        String randomStr=UUID.randomUUID().toString().substring(0,4);
+        String number=str+randomStr;
+        System.out.println(number);
+        return  number;
+    }
 
 }
 

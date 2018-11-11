@@ -26,4 +26,10 @@ public class CommonUtilsTest {
         System.out.println("生成的json字符串:"+jsonStr);
 
     }
+
+    @Test
+    public void  getNoTest(){
+        String num=CommonUtils.getLongNo(4);
+        System.out.println(num);
+    }
 }

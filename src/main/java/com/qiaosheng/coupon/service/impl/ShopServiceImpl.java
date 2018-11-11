@@ -30,7 +30,7 @@ public class ShopServiceImpl  implements ShopService {
     public void add(Shop shop) {
         String shopId = shopMapper.generateUserId();
         //店铺编号,5位数
-        String shopNo = CommonUtils.getNo(Integer.parseInt(shopId));
+        String shopNo = CommonUtils.getShortNo(Integer.parseInt(shopId));
         //设置店铺编号
         shop.setShopId(shopNo);
         //设置是否删除
@@ -49,7 +49,7 @@ public class ShopServiceImpl  implements ShopService {
 
                 //设置优惠券编号
                 String couponId=couponMapper.generateCouponId();
-                String couponNo= CommonUtils.getNo(Integer.parseInt(couponId));
+                String couponNo= CommonUtils.getLongNo(Integer.parseInt(couponId));
                 coupon.setCouponId(couponNo);
 
                 //保存优惠券
@@ -95,7 +95,7 @@ public class ShopServiceImpl  implements ShopService {
 
                 //设置优惠券编号
                 String couponId=couponMapper.generateCouponId();
-                String couponNo= CommonUtils.getNo(Integer.parseInt(couponId));
+                String couponNo= CommonUtils.getLongNo(Integer.parseInt(couponId));
                 coupon.setCouponId(couponNo);
 
                 //保存优惠券
@@ -107,5 +107,18 @@ public class ShopServiceImpl  implements ShopService {
         shop.setUpdataTime(new Date());
         shopMapper.updateByPrimaryKeySelective(shop);
 
+    }
+
+
+
+    @Override
+    public List<Shop> selectByConditions(Shop conditionShop) {
+        List<Shop> shopList=shopMapper.selectConditions(conditionShop);
+        for (Shop shop : shopList ){
+            //设置优惠券list
+            List<Coupon> couponList=couponMapper.selectByShopId(shop.getShopId());
+            shop.setCouponList(couponList);
+        }
+        return shopList;
     }
 }

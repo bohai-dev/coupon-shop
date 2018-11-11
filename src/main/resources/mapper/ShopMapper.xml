@@ -31,8 +31,33 @@
     BACKUP_COUMN1, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
     IS_DELETE
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectConditions" resultMap="BaseResultMap" parameterType="com.qiaosheng.coupon.domain.Shop" >
     select 
+    <include refid="Base_Column_List" />
+    from SHOP
+    <where>
+      <if test="shopId !=null">
+        and SHOP_ID = #{shopId,jdbcType=VARCHAR}
+      </if>
+      <if test="shopName !=null">
+        and SHOP_NAME= #{shopName,jdbcType=VARCHAR}
+      </if>
+      <if test="classId !=null">
+        and CLASS_ID= #{classId,jdbcType=VARCHAR}
+      </if>
+      <if test="isHot !=null">
+        and IS_HOT= #{isHot,jdbcType=VARCHAR}
+      </if>
+      <if test="adminUserId !=null">
+        and ADMIN_USER_ID= #{adminUserId,jdbcType=VARCHAR}
+      </if>
+       and IS_DELETE='0'
+    </where>
+
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
     <include refid="Base_Column_List" />
     from SHOP
     where SHOP_ID = #{shopId,jdbcType=VARCHAR}

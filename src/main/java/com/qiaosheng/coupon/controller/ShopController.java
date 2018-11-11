@@ -62,5 +62,17 @@ public class ShopController {
         shopService.updateShop(shop);
         return  responseHeader;
     }
+    @RequestMapping("/selectbyconditions")
+    public ReturnBody<List<Shop>> selectByConditions(@RequestBody Shop conditionShop) throws CouponException{
+        if (null==conditionShop){
+            throw new CouponException(ErrorConstant.COUPON_ID_REQUIRED);
+        }
+        List<Shop> shopList=shopService.selectByConditions(conditionShop);
+        ReturnBody<List<Shop>> returnBody=new ReturnBody<>();
+        returnBody.setData(shopList);
+
+        return returnBody;
+
+    }
 
 }

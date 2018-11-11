@@ -26,4 +26,9 @@ public interface ShopMapper {
     //根据用户编号查询店铺列表
     @Select(value = "select * from shop where admin_user_id=#{userId} and is_delete='0'")
     List<Shop> selectByUserId(String userId);
+
+   /* @Select(value = "select * from shop where class_id=#{classId} and is_delete='0'")
+    List<Shop> selectByClassId(String classId);*/
+
+   List<Shop> selectConditions(Shop shop);
 }

@@ -29,7 +29,7 @@ public class ShopMapperTest {
     public void generateUserIdTest(){
 
         String id=shopMapper.generateUserId();
-        String number=CommonUtils.getNo(Integer.parseInt(id));
+        String number=CommonUtils.getShortNo(Integer.parseInt(id));
         System.out.println(id);
     }
 
