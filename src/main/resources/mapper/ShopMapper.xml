@@ -16,7 +16,7 @@
     <result column="SHOP_ACTIVITY" property="shopActivity" jdbcType="VARCHAR" />
     <result column="SCAN_TIMES" property="scanTimes" jdbcType="DECIMAL" />
     <result column="ADMIN_USER_ID" property="adminUserId" jdbcType="VARCHAR" />
-    <result column="BACKUP_COUMN1" property="backupCoumn1" jdbcType="VARCHAR" />
+    <result column="SIMPLE_INTRO" property="simpleIntro" jdbcType="VARCHAR" />
     <result column="BACKUP_COUMN2" property="backupCoumn2" jdbcType="VARCHAR" />
     <result column="CLASS_ID" property="classId" jdbcType="VARCHAR" />
     <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
   <sql id="Base_Column_List" >
     SHOP_ID, SHOP_NAME, INTRO_IMAGES, SHOP_ADDRESS, CONTACT_WAY, FEATURES, SHOP_INTRO, 
     OPEN_TIME, HEIGHT_TIME, INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, SCAN_TIMES, ADMIN_USER_ID, 
-    BACKUP_COUMN1, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
+    SIMPLE_INTRO, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
     IS_DELETE
   </sql>
   <select id="selectConditions" resultMap="BaseResultMap" parameterType="com.qiaosheng.coupon.domain.Shop" >
@@ -71,7 +71,7 @@
       SHOP_ADDRESS, CONTACT_WAY, FEATURES, 
       SHOP_INTRO, OPEN_TIME, HEIGHT_TIME, 
       INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, 
-      SCAN_TIMES, ADMIN_USER_ID, BACKUP_COUMN1, 
+      SCAN_TIMES, ADMIN_USER_ID, SIMPLE_INTRO,
       BACKUP_COUMN2, CLASS_ID, IS_HOT, 
       CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
       IS_DELETE)
@@ -79,7 +79,7 @@
       #{shopAddress,jdbcType=VARCHAR}, #{contactWay,jdbcType=VARCHAR}, #{features,jdbcType=VARCHAR}, 
       #{shopIntro,jdbcType=VARCHAR}, #{openTime,jdbcType=VARCHAR}, #{heightTime,jdbcType=VARCHAR}, 
       #{indoorDevice,jdbcType=VARCHAR}, #{signDish,jdbcType=VARCHAR}, #{shopActivity,jdbcType=VARCHAR}, 
-      #{scanTimes,jdbcType=DECIMAL}, #{adminUserId,jdbcType=VARCHAR}, #{backupCoumn1,jdbcType=VARCHAR}, 
+      #{scanTimes,jdbcType=DECIMAL}, #{adminUserId,jdbcType=VARCHAR}, #{simpleIntro,jdbcType=VARCHAR}, 
       #{backupCoumn2,jdbcType=VARCHAR}, #{classId,jdbcType=VARCHAR}, #{isHot,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP}, #{warmPrompt,jdbcType=VARCHAR}, 
       #{isDelete,jdbcType=VARCHAR})
@@ -129,8 +129,8 @@
       <if test="adminUserId != null" >
         ADMIN_USER_ID,
       </if>
-      <if test="backupCoumn1 != null" >
-        BACKUP_COUMN1,
+      <if test="simpleIntro != null" >
+        SIMPLE_INTRO,
       </if>
       <if test="backupCoumn2 != null" >
         BACKUP_COUMN2,
@@ -197,8 +197,8 @@
       <if test="adminUserId != null" >
         #{adminUserId,jdbcType=VARCHAR},
       </if>
-      <if test="backupCoumn1 != null" >
-        #{backupCoumn1,jdbcType=VARCHAR},
+      <if test="simpleIntro != null" >
+        #{simpleIntro,jdbcType=VARCHAR},
       </if>
       <if test="backupCoumn2 != null" >
         #{backupCoumn2,jdbcType=VARCHAR},
@@ -265,8 +265,8 @@
       <if test="adminUserId != null" >
         ADMIN_USER_ID = #{adminUserId,jdbcType=VARCHAR},
       </if>
-      <if test="backupCoumn1 != null" >
-        BACKUP_COUMN1 = #{backupCoumn1,jdbcType=VARCHAR},
+      <if test="simpleIntro != null" >
+        SIMPLE_INTRO = #{simpleIntro,jdbcType=VARCHAR},
       </if>
       <if test="backupCoumn2 != null" >
         BACKUP_COUMN2 = #{backupCoumn2,jdbcType=VARCHAR},
@@ -307,7 +307,7 @@
       SHOP_ACTIVITY = #{shopActivity,jdbcType=VARCHAR},
       SCAN_TIMES = #{scanTimes,jdbcType=DECIMAL},
       ADMIN_USER_ID = #{adminUserId,jdbcType=VARCHAR},
-      BACKUP_COUMN1 = #{backupCoumn1,jdbcType=VARCHAR},
+      SIMPLE_INTRO = #{simpleIntro,jdbcType=VARCHAR},
       BACKUP_COUMN2 = #{backupCoumn2,jdbcType=VARCHAR},
       CLASS_ID = #{classId,jdbcType=VARCHAR},
       IS_HOT = #{isHot,jdbcType=VARCHAR},

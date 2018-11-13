@@ -8,11 +8,16 @@ public enum ErrorConstant {
 
     SUCCESS("0000","ok"),
     PARAMS_VALIDATE_ERROR("0001","数据校验失败"),
+
     USER_NAME_EXISTS("0002","该用户名已存在"),
     USER_NOT_EXISTS("0003","用户名或密码错误"),
     USER_ID_REQUIRED("0004","userId不能为空"),
     SHOP_ID_REQUIRED("0005","shopId不能为空"),
     COUPON_ID_REQUIRED("0006","couponId不能为空"),
+
+    LOGIN_CHECK_ERROR("0007","登录验证错误"),
+
+
 
 
 

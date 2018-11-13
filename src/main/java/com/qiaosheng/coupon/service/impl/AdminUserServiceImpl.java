@@ -38,9 +38,7 @@ public class AdminUserServiceImpl  implements AdminUserService {
     public AdminUser selectUser(AdminUser adminUser) throws CouponException{
 
         AdminUser user=userMapper.selectByNamePwd(adminUser.getUserName(),adminUser.getUserPwd());
-        if (user==null){
-           throw new CouponException(ErrorConstant.USER_NOT_EXISTS);
-        }
+
         return user;
 
     }

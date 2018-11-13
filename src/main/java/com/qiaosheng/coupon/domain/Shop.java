@@ -40,7 +40,8 @@ public class Shop {
     @NotBlank(message = "用户id不能为空")
     private String adminUserId;
 
-    private String backupCoumn1;
+  //  private String backupCoumn1;
+    private String simpleIntro;
 
     private String backupCoumn2;
 
@@ -173,13 +174,7 @@ public class Shop {
         this.adminUserId = adminUserId == null ? null : adminUserId.trim();
     }
 
-    public String getBackupCoumn1() {
-        return backupCoumn1;
-    }
 
-    public void setBackupCoumn1(String backupCoumn1) {
-        this.backupCoumn1 = backupCoumn1 == null ? null : backupCoumn1.trim();
-    }
 
     public String getBackupCoumn2() {
         return backupCoumn2;
@@ -245,6 +240,14 @@ public class Shop {
         this.couponList = couponList;
     }
 
+    public String getSimpleIntro() {
+        return simpleIntro;
+    }
+
+    public void setSimpleIntro(String simpleIntro) {
+        this.simpleIntro = simpleIntro;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -262,7 +265,7 @@ public class Shop {
                 ", shopActivity='" + shopActivity + '\'' +
                 ", scanTimes=" + scanTimes +
                 ", adminUserId='" + adminUserId + '\'' +
-                ", backupCoumn1='" + backupCoumn1 + '\'' +
+                ", simpleIntro='" + simpleIntro + '\'' +
                 ", backupCoumn2='" + backupCoumn2 + '\'' +
                 ", classId='" + classId + '\'' +
                 ", isHot='" + isHot + '\'' +

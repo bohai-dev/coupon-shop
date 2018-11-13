@@ -1,11 +1,15 @@
 package com.qiaosheng.coupon.aop;
 
+import com.qiaosheng.coupon.exception.CouponException;
+import com.qiaosheng.coupon.exception.ErrorConstant;
+import com.qiaosheng.coupon.utils.JWTUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -23,6 +27,9 @@ public class ParamLogAspect {
     /** logger */
     private static final Logger LOGGER = LoggerFactory.getLogger(ParamLogAspect.class);
 
+
+
+
     @Pointcut("execution(public * com.qiaosheng.coupon.controller..*.*(..))")
     public void webLog(){}
 
@@ -33,6 +40,8 @@ public class ParamLogAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
+
+
         // 记录下请求内容
         LOGGER.info("URL : " + request.getRequestURL().toString());
         LOGGER.info("HTTP_METHOD : " + request.getMethod());
@@ -40,7 +49,9 @@ public class ParamLogAspect {
         LOGGER.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         LOGGER.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
 
+
     }
+
 
 
 }

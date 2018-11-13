@@ -1,6 +1,7 @@
 package com.qiaosheng.coupon.exception;
 
 import com.qiaosheng.coupon.vo.ResponseHeader;
+import javafx.scene.shape.VLineTo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
@@ -8,6 +9,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -69,6 +71,16 @@ public class GlobalExceptionHandler {
         return header;
     }
 
+
+   /* @ExceptionHandler(value = Exception.class)
+    @ResponseBody
+    public ResponseHeader handleException(HttpServletRequest req,Exception e){
+        ResponseHeader header = new ResponseHeader();
+        header.setErrorCode(ErrorConstant.LOGIN_CHECK_ERROR.getErrorCode());
+        header.setErrorMsg(e.getMessage());
+        return header;
+    }
+*/
 
 
 

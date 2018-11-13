@@ -65,7 +65,7 @@ public class ShopController {
     @RequestMapping("/selectbyconditions")
     public ReturnBody<List<Shop>> selectByConditions(@RequestBody Shop conditionShop) throws CouponException{
         if (null==conditionShop){
-            throw new CouponException(ErrorConstant.COUPON_ID_REQUIRED);
+            throw new CouponException(ErrorConstant.SELECT_CONDITIONS_REQUIRED);
         }
         List<Shop> shopList=shopService.selectByConditions(conditionShop);
         ReturnBody<List<Shop>> returnBody=new ReturnBody<>();
