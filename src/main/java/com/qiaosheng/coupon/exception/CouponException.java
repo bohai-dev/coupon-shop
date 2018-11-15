@@ -1,7 +1,7 @@
 package com.qiaosheng.coupon.exception;
 
 /**
- * Cteated by cxy on 2018/11/6
+ * Created by cxy on 2018/11/6
  */
 public class CouponException extends Exception {
 

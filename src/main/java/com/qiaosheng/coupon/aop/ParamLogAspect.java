@@ -18,11 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
- * Cteated by cxy on 2018/11/5
+ * Created by cxy on 2018/11/5
  * 记录日志切面
  */
-@Aspect
 @Component
+@Aspect
+@Order(2)
 public class ParamLogAspect {
     /** logger */
     private static final Logger LOGGER = LoggerFactory.getLogger(ParamLogAspect.class);

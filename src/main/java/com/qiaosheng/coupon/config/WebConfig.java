@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Cteated by cxy on 2018/11/12
+ * Created by cxy on 2018/11/12
  */
 @Configuration
 @EnableWebMvc

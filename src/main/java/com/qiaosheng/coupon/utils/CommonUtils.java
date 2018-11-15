@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * Cteated by cxy on 2018/11/7
+ * Created by cxy on 2018/11/7
  * 通用工具类
  */
 public class CommonUtils {

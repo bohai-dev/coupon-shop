@@ -17,12 +17,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Cteated by cxy on 2018/11/13
+ * Created by cxy on 2018/11/13
  * token 验证切面
  */
 @Component
 @Aspect
-@Order(2)
+@Order(1)   //值越小，优先级越高
 public class TokenVertifyAspect {
     
     /** logger */

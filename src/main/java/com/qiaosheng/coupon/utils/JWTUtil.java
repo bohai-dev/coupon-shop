@@ -3,12 +3,10 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-
-import javax.servlet.ServletException;
 import java.util.Date;
 
 /**
- * Cteated by cxy on 2018/11/12
+ * Created by cxy on 2018/11/12
  */
 public class JWTUtil {
 
@@ -26,8 +24,6 @@ public class JWTUtil {
     }
 
     /**
-     * @Date:17-12-12 下午6:21
-     * @Author:root
      * @Desc:检查token,只要不正确就会抛出异常
      **/
     public static void checkToken(String token) throws Exception{

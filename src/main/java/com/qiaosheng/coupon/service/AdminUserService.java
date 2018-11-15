@@ -4,7 +4,7 @@ import com.qiaosheng.coupon.domain.AdminUser;
 import com.qiaosheng.coupon.exception.CouponException;
 
 /**
- * Cteated by cxy on 2018/11/6
+ * Created by cxy on 2018/11/6
  */
 public interface AdminUserService {
     //新增用户

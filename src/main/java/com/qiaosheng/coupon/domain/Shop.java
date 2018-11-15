@@ -19,7 +19,7 @@ public class Shop {
     private String contactWay;
     @NotBlank(message = "店铺特色不能为空")
     private String features;
-    @NotBlank(message = "店铺介绍不能为空")
+    @NotBlank(message = "店铺详细介绍不能为空")
     private String shopIntro;
 
     @NotBlank(message = "店铺营业时间不能为空")
@@ -40,7 +40,9 @@ public class Shop {
     @NotBlank(message = "用户id不能为空")
     private String adminUserId;
 
-  //  private String backupCoumn1;
+   //  private String backupCoumn1;
+    //简介
+    @NotBlank(message = "店铺简介不能为空")
     private String simpleIntro;
 
     private String backupCoumn2;

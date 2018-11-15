@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Cteated by cxy on 2018/11/6
+ * Created by cxy on 2018/11/6
  */
 @Service
 public class AdminUserServiceImpl  implements AdminUserService {

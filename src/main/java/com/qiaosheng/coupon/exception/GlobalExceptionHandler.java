@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Cteated by cxy on 2018/11/6
+ * Created by cxy on 2018/11/6
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
