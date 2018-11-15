@@ -11,7 +11,7 @@ import java.util.Date;
 public class JWTUtil {
 
     final static String base64EncodedSecretKey = "couponHS256coupon";//私钥
-    final static long TOKEN_EXP = 1000 * 60*30;//过期时间,测试使用60秒
+    final static long TOKEN_EXP = 1000 * 60*30;//过期时间30分钟,测试可使用60秒
 
     public static String getToken(String userId) {
         return Jwts.builder()

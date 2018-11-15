@@ -28,7 +28,7 @@ public class TokenVertifyAspect {
     /** logger */
     private static final Logger LOGGER = LoggerFactory.getLogger(TokenVertifyAspect.class);
 
-    @Pointcut("execution(public * com.qiaosheng.coupon.controller..*.*(..)) && !execution(public * com.qiaosheng.coupon.controller.AdminUserController.*(..))")
+    @Pointcut("execution(public * com.qiaosheng.coupon.controller.*.*(..)) && !execution(public * com.qiaosheng.coupon.controller.AdminUserController.*(..))")
     public void tokenVerify(){}
 
     @Before("tokenVerify()")
