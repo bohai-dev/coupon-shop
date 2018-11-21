@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by cxy on 2018/11/12
  */
+/*
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
@@ -17,9 +18,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //super.addInterceptors(registry);
-      /*  List<String> list=new ArrayList<>();
+      */
+/*  List<String> list=new ArrayList<>();
         list.add("/login");
         list.add("/register");
-        registry.addInterceptor(new JwtInterceptor()).excludePathPatterns(list);*/
+        registry.addInterceptor(new JwtInterceptor()).excludePathPatterns(list);*//*
+
     }
 }
+*/

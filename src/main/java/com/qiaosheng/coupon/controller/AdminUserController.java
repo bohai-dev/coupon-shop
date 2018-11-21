@@ -8,11 +8,9 @@ import com.qiaosheng.coupon.utils.JWTUtil;
 import com.qiaosheng.coupon.vo.ResponseHeader;
 import com.qiaosheng.coupon.vo.ReturnBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -22,13 +20,13 @@ import java.util.Map;
  * Created by cxy on 2018/11/6
  */
 @CrossOrigin
-@RestController
+@Controller
 public class AdminUserController {
 
     @Autowired
     AdminUserService userService;
 
-
+    @ResponseBody
     @RequestMapping("/register")
     public ResponseHeader register(@RequestBody @Valid AdminUser adminUser) throws CouponException {
 
@@ -40,6 +38,7 @@ public class AdminUserController {
 
     }
 
+    @ResponseBody
     @RequestMapping("/login")
     public ReturnBody<Map<String,String>> login(@RequestBody @Valid AdminUser adminUser) throws CouponException{
 
