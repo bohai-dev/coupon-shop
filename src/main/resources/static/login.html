@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登陆</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div class="l-bg">
+			<div class="l-model">
+				<h1 class="l-m-title">商家登陆</h1>
+				<form action="" id="loginForm">
+					<div class="rowView">
+						<span class="l-subtitle">邮箱：</span>
+						<input class="l-inputbox" type="text" name="email" value="" />
+					</div>
+					<div class="rowView">
+						<span class="l-subtitle">密码：</span>
+						<input class="l-inputbox" type="password" maxlength="20" name="password" value="" />
+					</div>
+					<div class="rowView">
+						<div class="l-tips"></div>
+					</div>
+					<div class="rowView" style="margin: 0;">
+						<div class="l-read" style="justify-content: space-around;">
+							<div><input type="checkbox" name="rememberEmail" value="1" />记住邮箱</div>
+							<div><input type="checkbox" name="rememberPassword" value="1" />记住密码</div>
+						</div>
+					</div>
+					<input class="l-submitBtn" type="button" value="登陆" onclick="login(this.form)"/>
+					<input class="l-submitBtn toRegister" type="button" value="注册"/>
+				</form>
+			</div>
+		</div>
+		<div class="l-mask">
+			<div class="l-mask-model">
+				<div class="l-mask-modelChild">
+					<h3>提示</h3>
+					<p>成功！</p>
+					<div class="l-btnBox">
+						<button class="yes">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/cache.js" type="text/javascript" charset="utf-8"></script>
+</html>

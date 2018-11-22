@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>消费者小程序-后台管理-商家配置</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="l-head">
+			<div class="l-nav">
+				<div class="l-userInfo"><span class="l-userName">你好</span><span class="l-sep">|</span><a class="l-logOff" href="javascript:">注销</a></div>
+			</div>
+		</div>
+		<div class="l-topBar">您已设置过内容</div>
+		<div class="l-bg">
+			<div class="l-container">
+				<form action="" id="">
+					<div class="l-srction-tips">基本信息</div>
+					<div class="l-shopInfo">
+						<div class="l-formRowView pr">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>游走图片</span>
+							<div class="photoUpdata">
+			                    <div style="display: none;">
+				                    <div>
+										<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
+										<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
+										<br/>
+										上传到指定目录:<input type="text" value="xiaochengxu/shopImg" id='dirname' size=50>
+									</div>
+									<h4>您所选择的文件列表：</h4>
+			                    </div>
+			                    <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+			                    <div id="container">
+									<a id="selectfiles" href="javascript:void(0);" class='btn'>选择文件</a>
+									<a id="postfiles" href="javascript:void(0);" class='btn'>开始上传</a>
+								</div>
+								<pre id="console" style="display: none;"></pre>
+		                    </div>
+		                    <!--<div class="imgTips">提示：请依次上传图片，暂不支持同时上传。如遇上传失败，删除并重新上传即可。</div>-->
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅名称</span>
+							<input class="l-formInput" type="text" name="shopName" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅地址</span>
+							<input class="l-formInput" type="text" name="shopAddress" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅简介</span>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="synopsis" value="" ></textarea>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>联系方式</span>
+							<input class="l-formInput" type="text" name="contactWay" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅分类</span>
+							<select class="l-formSelect" name="classId">
+								<option value="0">川湘麻辣</option>
+								<option value="1">粤式情怀</option>
+								<option value="2">台式美味</option>
+								<option value="3">烧烤小食</option>
+								<option value="4">日韩尝鲜</option>
+								<option value="5">东北家常菜</option>
+								<option value="6">东南亚风味</option>
+								<option value="7">江浙本帮菜</option>
+							</select>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>人气商家</span>
+							<select class="l-formSelect" name="isHot">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅特色</span>
+							<input class="l-formInputSmall" maxlength="6" placeholder="限六个字" type="text" name="features" value="" />
+							<input class="l-formInputSmall" maxlength="6" placeholder="限六个字" type="text" name="features" value="" />
+							<input class="l-formInputSmall" maxlength="6" placeholder="限六个字" type="text" name="features" value="" />
+						</div>
+					</div>
+					<div class="l-srction-tips">转YOYO分享优惠</div>
+					<div class="l-shopInfo">
+						<div class="l-formBox">
+							<span class="l-formCloseBtn">删除</span>
+							<div class="l-formRowView">
+								<span class="l-formTitle">优惠形式</span>
+								<select class="l-formSelect" name="couponType">
+									<option value="0">代金卷</option>
+									<option value="1">折扣卷</option>
+									<option value="2">赠品卷</option>
+								</select>
+							</div>
+							<div class="l-formRowView">
+								<span class="l-formTitle">优惠内容</span>
+								<input class="l-formInput" type="text" name="couponValue" value="" />
+								<span class="l-formInputContent couponIntro db">元代金卷面值</span>
+								<span class="l-formInputContent couponIntro">%折扣卷比例</span>
+								<span class="l-formInputContent couponIntro">每份赠品内容</span>
+							</div>
+							<div class="l-formRowView">
+								<span class="l-formTitle">转发数量</span>
+								<input class="l-formInput forwardingNumber" type="number" name="forwardingNumber" value="1" />
+								<span class="l-formInputContent">次转发兑换一次</span>
+							</div>
+						</div>
+						<div class="l-formRowView addCouponBtn">
+							<span class="l-formTitle"></span>
+							<input class="l-formButton" type="button" name="" value="+ 增加一种优惠设定" />
+						</div>
+					</div>
+					<div class="l-srction-tips">温馨提示</div>
+					<div class="l-shopInfo">
+						<div class="l-formRowView">
+							<span class="l-formTitle">分享优惠使用规则</span>
+							<input class="l-formInput" type="text" name="useRule" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>详细介绍</span>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopIntro" value="" ></textarea>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>营业时间</span>
+							<input class="l-formInput" type="text" name="openTime" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle">用餐高峰</span>
+							<input class="l-formInput" type="text" name="heightTime" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>室内设施</span>
+							<input class="l-formInput" type="text" name="indoorDevice" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>招牌菜品</span>
+							<input class="l-formInput" type="text" name="signDish" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle">店内现有活动</span>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopActivity" value="" ></textarea>
+						</div>
+					</div>
+					<input class="l-formSubmitBtn addShop" type="button" value="确定" onclick="addShopFrom(this.form)"/>
+					<input class="l-formSubmitBtn modeifyShop" type="button" value="修改" onclick="modeifyShopFrom(this.form)"/>
+				</form>
+			</div>
+		</div>
+		<!--提示框-->
+		<div class="l-mask">
+			<div class="l-mask-model">
+				<div class="l-mask-modelChild">
+					<h3>提示</h3>
+					<p>成功！</p>
+					<div class="l-btnBox">
+						<button class="yes">确定</button>
+						<button class="backLogin">返回登陆</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="lib/crypto1/crypto/crypto.js"></script>
+	<script type="text/javascript" src="lib/crypto1/hmac/hmac.js"></script>
+	<script type="text/javascript" src="lib/crypto1/sha1/sha1.js"></script>
+	<script type="text/javascript" src="lib/base64.js"></script>
+	<script type="text/javascript" src="lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+	<script src="js/upload.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/cache.js" type="text/javascript" charset="utf-8"></script>
+</html>

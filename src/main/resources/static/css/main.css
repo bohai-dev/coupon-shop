@@ -1,0 +1,474 @@
+html,body,a,h1,h2,h3,h4,h5,h6,p,img,input,button,textarea{
+	margin:0;
+	padding:0;
+	font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","微軟正黑體","儷黑 Pro", sans-serif;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+a{
+	text-decoration: none;
+}
+input, button, select, textarea{
+	outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+	-moz-appearance: textfield;
+}
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #ddd; 
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #ddd; 
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #ddd; 
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #ddd; 
+} 
+/*公共样式*/
+.pr{
+	position: relative;
+}
+.dn{
+	display: none !important;
+}
+.db{
+	display: block !important;
+}
+.df{
+	display: flex !important;
+}
+/*登陆和注册*/
+.l-bg{
+	width: 100%;
+    min-height: 100%;
+    background: linear-gradient(to right,rgb(214,68, 104),rgb(235,104, 109));
+    display: flex;
+    justify-content: center;
+}
+.l-model{
+	width: 800px;
+    height: 500px;
+    background: white;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.l-m-title{
+	font-weight: normal;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.rowView{
+	display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.l-subtitle{
+	padding-bottom: 5px;
+	color: #333;
+	font-size: 14px;
+}
+.l-inputbox{
+	width: 330px;
+	height: 40px;
+    padding-left: 14px;
+    line-height: 40px;
+    border: 1px solid #e8e8e8;
+    color: #555;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.l-mustTips{
+	color: #e85759;
+    padding: 0 4px;
+    vertical-align: inherit;
+    line-height: 40px;
+    font-size: 14px;
+}
+.l-tips{
+	line-height: 20px;
+    font-size: 14px;
+    color: #f66;
+    display: none;
+}
+.l-read{
+	font-size: 14px;
+    color: #9d9d9d;
+    display: flex;
+    align-items: center;
+}
+.l-read>div{
+	display: flex;
+    align-items: center;
+}
+.l-read a{
+    color: #333;
+    margin: 0 3px;
+    font-weight: bold;
+}
+.l-submitBtn{
+	width: 330px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    overflow: hidden;
+    background:linear-gradient(to right,rgb(214,68, 104),rgb(235,104, 109));
+    margin-top: 15px;
+    border: 1px solid rgba(186,186,186,0.3);
+    color: #fff;
+    display: block;
+}
+.l-tipsBorder{
+	border: 1px solid #f66;
+}
+.l-backlogin{
+	text-align: right;
+    font-size: 14px;
+    color: #333;
+}
+.l-backlogin>a{
+    color: #60B3E7;
+}
+.l-backlogin>a:hover{
+    text-decoration: underline;
+}
+/*弹出模态框*/
+.l-mask{
+	width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 5;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.l-mask-model{
+	min-width: 400px;
+    min-height: 210px;
+    background: white;
+    padding: 5px;
+    box-sizing: border-box;
+    display: none;
+}
+.l-mask-modelChild{
+    border: 1px solid #e8e8e8;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 10px;
+}
+.l-mask-modelChild>h3{
+	font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f66;
+}
+.l-mask-modelChild>p{
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+    font-size: 18px;
+}
+.l-btnBox{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.l-btnBox>button{
+	width: 65px;
+    height: 30px;
+    border: none;
+    background: linear-gradient(to right,rgb(214,68, 104),rgb(235,104, 109));
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+.backLogin{
+	display: none;
+}
+/*上传图片*/
+.btn{
+    color: #fff;
+    background-color: #2eafbb;
+    border-color: #2e6da4; 
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+a.btn:hover{
+  background-color: #73d3dc;
+}
+.progress{
+	margin-top:2px;
+    width: 240px;
+    height: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.progress-bar{ 
+	background-color: rgb(92, 184, 92);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.14902) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.14902) 50%, rgba(255, 255, 255, 0.14902) 75%, transparent 75%, transparent);
+	background-size: 40px 40px;
+	box-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px 0px inset;
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+	display: block;
+	float: left; 
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	transition-delay: 0s;
+	transition-duration: 0.6s;
+	transition-property: width;
+	transition-timing-function: ease;
+	width: 266.188px;
+}
+.photoUpdata{
+	width: 750px;
+}
+#ossfile{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+#ossfile img{
+	width: 240px;
+	height: 100px;
+}
+#ossfile>div{
+	position: relative;
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 10px 10px 0;
+}
+.delBtn{
+	position: absolute;
+	right: -5px;
+    top: 0px;
+    background: #DF3B3B;
+}
+.adView .delBtn{
+	right: 0px;
+	top: 35px;
+}
+#ossfile .delBtn:hover{
+	background: #E20000;
+}
+/*配置界面*/
+.l-head{
+	position: relative;
+    height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+    background: #333;
+    display: flex;
+    justify-content: center;
+}
+.l-nav{
+	min-width: 1180px;
+}
+.l-userInfo{
+	float: right;
+	height: 40px;
+	line-height: 40px;
+}
+.l-userName,.l-logOff{
+	padding: 0 5px;
+	color: #b0b0b0;
+    text-align: center;
+}
+.l-sep{
+	color: #424242;
+}
+.l-logOff:hover{
+	color: #FFFFFF;
+}
+.l-topBar{
+    height: 40px;
+    width: 100%;
+    display: none;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+}
+.l-container{
+    width: 1180px;
+    margin: 30px 0;
+    background: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.l-srction-tips{
+	font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #2FAFBC;
+    padding: 15px 100px;
+}
+.l-shopInfo{
+	padding: 15px 100px;
+	display: flex;
+	flex-direction: column;
+}
+.l-formRowView{
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+}
+.l-formTitle{
+    width: 150px;
+    text-align: right;
+    color: #666;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.l-formInput,.l-formInputSmall,.l-formInputMoreSmall{
+	width: 318px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    vertical-align: top;
+    padding: 0 10px;
+    outline: 0;
+    margin-right: 10px;
+}
+.l-formSelect{
+	width: 341px;
+    height: 41px;
+    border-radius: 4px;
+    padding: 0 10px;
+    border: 1px solid #cdcdcd;
+	vertical-align: middle;
+    font-size: 14px;
+}
+.l-formInputSmall{
+	width: 85px;
+    margin-right: 9px;
+}
+.l-formInputSmall:last-child{
+	margin: 0;
+}
+.l-formInputMoreSmall{
+	width: 43px;
+    margin-right: 0px;
+}
+.l-formB{
+    margin: 0 10px;	
+    color: #666;
+}
+.l-formInputContent{
+	color: #666;
+    font-size: 14px;
+}
+.l-formButton{
+	width: 200px;
+    height: 40px;
+    background: white;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.l-formButton:hover{
+	background: #f6f6f6;
+}
+.l-formTextarea{
+	width: 318px;
+    height: 80px;
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    vertical-align: top;
+    padding: 10px;
+    outline: 0;
+}
+.l-formSubmitBtn{
+	border: 1px solid #248992;
+    background: #2eafbb;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #fff;
+    width: 340px;
+    outline: 0;
+    margin-left: 260px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.l-formSubmitBtn:hover{
+	background: #73d3dc;
+}
+.couponIntro{
+	display: none;
+}
+.l-formBox{
+	border: 1px solid #eee;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.l-formCloseBtn{
+	width: 50px;
+    height: 25px;
+    background: #bbb;
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.l-formCloseBtn:hover{
+	background: #eee;
+	color: #f66;
+}
