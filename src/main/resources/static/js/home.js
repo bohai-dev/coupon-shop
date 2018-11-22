@@ -80,7 +80,7 @@ $(function(){
 							$("input[name='forwardingNumber']").eq(i).val(res.data[0].couponList[i].exchangeTimes)
 							$('.l-formBox').eq(i).find(".couponIntro").eq(res.data[0].couponList[i].couponType).addClass("db").siblings().removeClass("db")
 						}
-						$("input[name='useRule']").val(res.data[0].warmPrompt)
+						$("textarea[name='useRule']").val(res.data[0].warmPrompt)
 						$("textarea[name='shopIntro']").val(res.data[0].shopIntro)
 						$("input[name='openTime']").val(res.data[0].openTime)
 						$("input[name='heightTime']").val(res.data[0].heightTime)
@@ -274,14 +274,14 @@ function addShopFrom(form){
     	showModelMes("请输入餐厅地址！")
     } else if (!form.synopsis.value){
     	showModelMes("请输入餐厅简介！")
+    } else if (!form.shopIntro.value){
+    	showModelMes("请输入详细介绍！")
     } else if (!form.contactWay.value){
     	showModelMes("请输入联系方式！")
     } else if (!features){
     	showModelMes("请输入 1 ~ 3 种餐厅特色！")
     } else if (couponList.length<1){
     	showModelMes("请设置至少一种优惠卷！")
-    } else if (!form.shopIntro.value){
-    	showModelMes("请输入详细介绍！")
     } else if (!form.openTime.value){
     	showModelMes("请输入营业时间！")
     } else if (!form.indoorDevice.value){
@@ -375,14 +375,14 @@ function modeifyShopFrom(form){
     	showModelMes("请输入餐厅地址！")
     } else if (!form.synopsis.value){
     	showModelMes("请输入餐厅简介！")
+    } else if (!form.shopIntro.value){
+    	showModelMes("请输入详细介绍！")
     } else if (!form.contactWay.value){
     	showModelMes("请输入联系方式！")
     } else if (!features){
     	showModelMes("请输入 1 ~ 3 种餐厅特色！")
     } else if (couponList.length<1){
     	showModelMes("请设置至少一种优惠卷！")
-    } else if (!form.shopIntro.value){
-    	showModelMes("请输入详细介绍！")
     } else if (!form.openTime.value){
     	showModelMes("请输入营业时间！")
     } else if (!form.indoorDevice.value){

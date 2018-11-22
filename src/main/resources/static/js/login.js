@@ -36,7 +36,7 @@ $(function(){
     })
 })
 
-//注册
+//登陆
 function login(form){
 	if (!form.email.value) {
 		$('.l-tips').show().text("请输入邮箱")
@@ -46,10 +46,10 @@ function login(form){
 		$("input[name='password']").addClass("l-tipsBorder")
 	} else {
 		if($("input:checkbox[name='rememberEmail']")[0].checked){ 
-	        setCookie('user',$("input[name='email']").val(),30); //保存帐号到cookie，有效期7天
+	        setCookie('user',$("input[name='email']").val(),30); //保存帐号到cookie，有效期30天
 	    }
 		if($("input:checkbox[name='rememberPassword']")[0].checked){ 
-	        setCookie('pswd',$("input[name='password']").val(),30); //保存密码到cookie，有效期7天
+	        setCookie('pswd',$("input[name='password']").val(),30); //保存密码到cookie，有效期30天
 	    }
 		var data = {
 			userName:form.email.value,

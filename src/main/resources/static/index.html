@@ -34,6 +34,7 @@
 			                    <div id="container">
 									<a id="selectfiles" href="javascript:void(0);" class='btn'>选择文件</a>
 									<a id="postfiles" href="javascript:void(0);" class='btn'>开始上传</a>
+									<span class="l-formInputContent">最多上传9张图片</span>
 								</div>
 								<pre id="console" style="display: none;"></pre>
 		                    </div>
@@ -52,20 +53,24 @@
 							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="synopsis" value="" ></textarea>
 						</div>
 						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>详细介绍</span>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopIntro" value="" ></textarea>
+						</div>
+						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>联系方式</span>
 							<input class="l-formInput" type="text" name="contactWay" value="" />
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅分类</span>
 							<select class="l-formSelect" name="classId">
-								<option value="0">川湘麻辣</option>
-								<option value="1">粤式情怀</option>
-								<option value="2">台式美味</option>
-								<option value="3">烧烤小食</option>
-								<option value="4">日韩尝鲜</option>
-								<option value="5">东北家常菜</option>
-								<option value="6">东南亚风味</option>
-								<option value="7">江浙本帮菜</option>
+								<option value="0">粤菜经典</option>
+								<option value="1">正宗北方</option>
+								<option value="2">川湘麻辣</option>
+								<option value="3">本帮江浙</option>
+								<option value="4">饮品甜点</option>
+								<option value="5">云贵味道</option>
+								<option value="6">最夯台味</option>
+								<option value="7">国际饭儿</option>
 							</select>
 						</div>
 						<div class="l-formRowView">
@@ -115,13 +120,12 @@
 					<div class="l-srction-tips">温馨提示</div>
 					<div class="l-shopInfo">
 						<div class="l-formRowView">
-							<span class="l-formTitle">分享优惠使用规则</span>
-							<input class="l-formInput" type="text" name="useRule" value="" />
+							<span class="l-formTitle">提示内容</span>
+							<textarea class="l-formTextarea" type="text" name="useRule" value="" /></textarea>
 						</div>
-						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>详细介绍</span>
-							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopIntro" value="" ></textarea>
-						</div>
+					</div>
+					<div class="l-srction-tips">店内用餐</div>
+					<div class="l-shopInfo">
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>营业时间</span>
 							<input class="l-formInput" type="text" name="openTime" value="" />
@@ -131,13 +135,19 @@
 							<input class="l-formInput" type="text" name="heightTime" value="" />
 						</div>
 						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>室内设施</span>
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅设施</span>
 							<input class="l-formInput" type="text" name="indoorDevice" value="" />
 						</div>
+					</div>
+					<div class="l-srction-tips">招牌菜品</div>
+					<div class="l-shopInfo">
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>招牌菜品</span>
 							<input class="l-formInput" type="text" name="signDish" value="" />
 						</div>
+					</div>
+					<div class="l-srction-tips">店内活动 / 菜品介绍</div>
+					<div class="l-shopInfo">
 						<div class="l-formRowView">
 							<span class="l-formTitle">店内现有活动</span>
 							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopActivity" value="" ></textarea>

@@ -24,12 +24,14 @@
     <result column="UPDATA_TIME" property="updataTime" jdbcType="TIMESTAMP" />
     <result column="WARM_PROMPT" property="warmPrompt" jdbcType="VARCHAR" />
     <result column="IS_DELETE" property="isDelete" jdbcType="VARCHAR" />
+    <result column="FLOW_TITLE" property="flowTitle" jdbcType="VARCHAR" />
+    <result column="FLOW_CONTENT" property="flowContent" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     SHOP_ID, SHOP_NAME, INTRO_IMAGES, SHOP_ADDRESS, CONTACT_WAY, FEATURES, SHOP_INTRO, 
     OPEN_TIME, HEIGHT_TIME, INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, SCAN_TIMES, ADMIN_USER_ID, 
     SIMPLE_INTRO, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
-    IS_DELETE
+    IS_DELETE,FLOW_TITLE,FLOW_CONTENT
   </sql>
   <select id="selectConditions" resultMap="BaseResultMap" parameterType="com.qiaosheng.coupon.domain.Shop" >
     select 
@@ -66,24 +68,6 @@
     delete from SHOP
     where SHOP_ID = #{shopId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.qiaosheng.coupon.domain.Shop" >
-    insert into SHOP (SHOP_ID, SHOP_NAME, INTRO_IMAGES, 
-      SHOP_ADDRESS, CONTACT_WAY, FEATURES, 
-      SHOP_INTRO, OPEN_TIME, HEIGHT_TIME, 
-      INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, 
-      SCAN_TIMES, ADMIN_USER_ID, SIMPLE_INTRO,
-      BACKUP_COUMN2, CLASS_ID, IS_HOT, 
-      CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
-      IS_DELETE)
-    values (#{shopId,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{introImages,jdbcType=VARCHAR}, 
-      #{shopAddress,jdbcType=VARCHAR}, #{contactWay,jdbcType=VARCHAR}, #{features,jdbcType=VARCHAR}, 
-      #{shopIntro,jdbcType=VARCHAR}, #{openTime,jdbcType=VARCHAR}, #{heightTime,jdbcType=VARCHAR}, 
-      #{indoorDevice,jdbcType=VARCHAR}, #{signDish,jdbcType=VARCHAR}, #{shopActivity,jdbcType=VARCHAR}, 
-      #{scanTimes,jdbcType=DECIMAL}, #{adminUserId,jdbcType=VARCHAR}, #{simpleIntro,jdbcType=VARCHAR}, 
-      #{backupCoumn2,jdbcType=VARCHAR}, #{classId,jdbcType=VARCHAR}, #{isHot,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP}, #{warmPrompt,jdbcType=VARCHAR}, 
-      #{isDelete,jdbcType=VARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.qiaosheng.coupon.domain.Shop" >
     insert into SHOP
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -153,6 +137,12 @@
       <if test="isDelete != null" >
         IS_DELETE,
       </if>
+      <if test="flowTitle != null" >
+        FLOW_TITLE,
+      </if>
+      <if test="flowContent != null" >
+        FLOW_CONTENT,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="shopId != null" >
@@ -220,6 +210,12 @@
       </if>
       <if test="isDelete != null" >
         #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="flowTitle != null" >
+        #{flowTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="flowContent != null" >
+        #{flowContent,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -289,32 +285,14 @@
       <if test="isDelete != null" >
         IS_DELETE = #{isDelete,jdbcType=VARCHAR},
       </if>
+      <if test="flowTitle != null" >
+        FLOW_TITLE = #{flowTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="flowContent != null" >
+        FLOW_CONTENT = #{flowContent,jdbcType=VARCHAR},
+      </if>
     </set>
     where SHOP_ID = #{shopId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qiaosheng.coupon.domain.Shop" >
-    update SHOP
-    set SHOP_NAME = #{shopName,jdbcType=VARCHAR},
-      INTRO_IMAGES = #{introImages,jdbcType=VARCHAR},
-      SHOP_ADDRESS = #{shopAddress,jdbcType=VARCHAR},
-      CONTACT_WAY = #{contactWay,jdbcType=VARCHAR},
-      FEATURES = #{features,jdbcType=VARCHAR},
-      SHOP_INTRO = #{shopIntro,jdbcType=VARCHAR},
-      OPEN_TIME = #{openTime,jdbcType=VARCHAR},
-      HEIGHT_TIME = #{heightTime,jdbcType=VARCHAR},
-      INDOOR_DEVICE = #{indoorDevice,jdbcType=VARCHAR},
-      SIGN_DISH = #{signDish,jdbcType=VARCHAR},
-      SHOP_ACTIVITY = #{shopActivity,jdbcType=VARCHAR},
-      SCAN_TIMES = #{scanTimes,jdbcType=DECIMAL},
-      ADMIN_USER_ID = #{adminUserId,jdbcType=VARCHAR},
-      SIMPLE_INTRO = #{simpleIntro,jdbcType=VARCHAR},
-      BACKUP_COUMN2 = #{backupCoumn2,jdbcType=VARCHAR},
-      CLASS_ID = #{classId,jdbcType=VARCHAR},
-      IS_HOT = #{isHot,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      UPDATA_TIME = #{updataTime,jdbcType=TIMESTAMP},
-      WARM_PROMPT = #{warmPrompt,jdbcType=VARCHAR},
-      IS_DELETE = #{isDelete,jdbcType=VARCHAR}
-    where SHOP_ID = #{shopId,jdbcType=VARCHAR}
-  </update>
+
 </mapper>

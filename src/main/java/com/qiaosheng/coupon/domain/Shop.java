@@ -62,6 +62,14 @@ public class Shop {
 
     private String isDelete;
 
+    //流动标题
+    private String flowTitle;
+
+    //流动内容
+    private String flowContent;
+
+
+
     private List<Coupon> couponList;
 
     public String getShopId() {
@@ -250,6 +258,22 @@ public class Shop {
         this.simpleIntro = simpleIntro;
     }
 
+    public String getFlowTitle() {
+        return flowTitle;
+    }
+
+    public void setFlowTitle(String flowTitle) {
+        this.flowTitle = flowTitle;
+    }
+
+    public String getFlowContent() {
+        return flowContent;
+    }
+
+    public void setFlowContent(String flowContent) {
+        this.flowContent = flowContent;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -275,6 +299,8 @@ public class Shop {
                 ", updataTime=" + updataTime +
                 ", warmPrompt='" + warmPrompt + '\'' +
                 ", isDelete='" + isDelete + '\'' +
+                ", flowTitle='" + flowTitle + '\'' +
+                ", flowContent='" + flowContent + '\'' +
                 ", couponList=" + couponList +
                 '}';
     }

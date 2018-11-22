@@ -10,7 +10,6 @@ import java.util.List;
 public interface ShopMapper {
     int deleteByPrimaryKey(String shopId);
 
-    int insert(Shop record);
 
     int insertSelective(Shop record);
 
@@ -18,7 +17,6 @@ public interface ShopMapper {
 
     int updateByPrimaryKeySelective(Shop record);
 
-    int updateByPrimaryKey(Shop record);
 
     @Select(value="select SHOP_SEQ.NEXTVAL from dual")
     String generateUserId();

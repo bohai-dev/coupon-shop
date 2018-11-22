@@ -57,11 +57,17 @@ color: #ddd;
 	width: 800px;
     height: 500px;
     background: white;
-    margin-top: 150px;
+    margin-top: 110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.l-logo{
+	position: absolute;
+    top: -70px;
+    width: 240px;
 }
 .l-m-title{
 	font-weight: normal;
@@ -143,6 +149,12 @@ color: #ddd;
 }
 .l-backlogin>a:hover{
     text-decoration: underline;
+}
+.l-support{
+    position: absolute;
+    bottom: -40px;
+    color: #f3b915;
+    font-weight: normal;
 }
 /*弹出模态框*/
 .l-mask{
@@ -339,11 +351,11 @@ a.btn:hover{
     box-sizing: border-box;
 }
 .l-srction-tips{
-	font-size: 18px;
+	font-size: 22px;
     font-weight: bold;
     color: white;
     background: #2FAFBC;
-    padding: 15px 100px;
+    padding: 12px 100px;
 }
 .l-shopInfo{
 	padding: 15px 100px;
