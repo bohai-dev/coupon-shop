@@ -69,6 +69,14 @@ public class Shop {
     private String flowContent;
 
 
+    //经度
+    private String longitude;
+
+    //纬度
+    private String latitude;
+
+
+
 
     private List<Coupon> couponList;
 
@@ -274,6 +282,22 @@ public class Shop {
         this.flowContent = flowContent;
     }
 
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -301,6 +325,8 @@ public class Shop {
                 ", isDelete='" + isDelete + '\'' +
                 ", flowTitle='" + flowTitle + '\'' +
                 ", flowContent='" + flowContent + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
                 ", couponList=" + couponList +
                 '}';
     }

@@ -26,12 +26,14 @@
     <result column="IS_DELETE" property="isDelete" jdbcType="VARCHAR" />
     <result column="FLOW_TITLE" property="flowTitle" jdbcType="VARCHAR" />
     <result column="FLOW_CONTENT" property="flowContent" jdbcType="VARCHAR" />
+    <result column="LONGITUDE" property="longitude" jdbcType="VARCHAR" />
+    <result column="LATITUDE" property="latitude" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     SHOP_ID, SHOP_NAME, INTRO_IMAGES, SHOP_ADDRESS, CONTACT_WAY, FEATURES, SHOP_INTRO, 
     OPEN_TIME, HEIGHT_TIME, INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, SCAN_TIMES, ADMIN_USER_ID, 
     SIMPLE_INTRO, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
-    IS_DELETE,FLOW_TITLE,FLOW_CONTENT
+    IS_DELETE,FLOW_TITLE,FLOW_CONTENT,LONGITUDE,LATITUDE
   </sql>
   <select id="selectConditions" resultMap="BaseResultMap" parameterType="com.qiaosheng.coupon.domain.Shop" >
     select 
@@ -143,6 +145,12 @@
       <if test="flowContent != null" >
         FLOW_CONTENT,
       </if>
+      <if test="longitude != null" >
+        LONGITUDE,
+      </if>
+      <if test="latitude != null" >
+        LATITUDE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="shopId != null" >
@@ -217,6 +225,12 @@
       <if test="flowContent != null" >
         #{flowContent,jdbcType=VARCHAR},
       </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.Shop" >
@@ -290,6 +304,12 @@
       </if>
       <if test="flowContent != null" >
         FLOW_CONTENT = #{flowContent,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        LONGITUDE = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        LATITUDE = #{latitude,jdbcType=VARCHAR},
       </if>
     </set>
     where SHOP_ID = #{shopId,jdbcType=VARCHAR}
