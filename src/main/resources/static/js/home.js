@@ -11,16 +11,17 @@ $(function(){
 		//查询店铺信息
 		$.ajax({
 			type:"get",
-			url:"http://47.100.12.188:8088/shop/selectbyuserid?userId="+userId,
+			url:"http://139.196.73.183:8088/shop/selectbyuserid?userId="+userId,
 			async:true,
 			beforeSend: function(request) {
 	            request.setRequestHeader("Authorization", token);
 	        },
 			success:function(res){
-				console.log(res)
+//				console.log(res)
 				if (res.errorCode==0000) {
 					if (res.data.length>0) {
 						$('.addShop').hide()
+						$('.qrcode').show()
 						$("html,body").animate({scrollTop:0}, 200);
 						$('.l-topBar').slideDown(1000)
 						setTimeout(function(){
@@ -47,6 +48,8 @@ $(function(){
 						for (var i = 0; i < featuresArr.length; i++) {
 							$("input[name='features']").eq(i).val(featuresArr[i])
 						}
+						$("input[name='longitude']").val(res.data[0].longitude)
+						$("input[name='latitude']").val(res.data[0].latitude)
 						var elemCouponIntro = "";
 						for (var i = 0; i < res.data[0].couponList.length-1; i++) {
 							elemCouponIntro += '<div class="l-formBox">'+
@@ -54,17 +57,18 @@ $(function(){
 													'<div class="l-formRowView">'+
 														'<span class="l-formTitle">优惠形式</span>'+
 														'<select class="l-formSelect" name="couponType">'+
-															'<option value="0">代金卷</option>'+
-															'<option value="1">折扣卷</option>'+
-															'<option value="2">赠品卷</option>'+
+															'<option value="0">代金券</option>'+
+															'<option value="1">折扣券</option>'+
+															'<option value="2">赠品券</option>'+
 														'</select>'+
 													'</div>'+
 													'<div class="l-formRowView">'+
 														'<span class="l-formTitle">优惠内容</span>'+
-														'<input class="l-formInput" type="text" name="couponValue" value="" />'+
-														'<span class="l-formInputContent couponIntro db">元代金卷面值</span>'+
-														'<span class="l-formInputContent couponIntro">%折扣卷比例</span>'+
+														'<input class="l-formInput" onblur="checkWord(100,this)" placeholder="限50个字" type="text" name="couponValue" value="" />'+
+														'<span class="l-formInputContent couponIntro db">元代金券面值</span>'+
+														'<span class="l-formInputContent couponIntro">%折扣券比例</span>'+
 														'<span class="l-formInputContent couponIntro">每份赠品内容</span>'+
+														'<span class="l-formInputWarning">内容超长，已截取</span>'+
 													'</div>'+
 													'<div class="l-formRowView">'+
 														'<span class="l-formTitle">转发数量</span>'+
@@ -87,6 +91,8 @@ $(function(){
 						$("input[name='indoorDevice']").val(res.data[0].indoorDevice)
 						$("input[name='signDish']").val(res.data[0].signDish)
 						$("textarea[name='shopActivity']").val(res.data[0].shopActivity)
+						$("input[name='flowTitle']").val(res.data[0].flowTitle)
+						$("textarea[name='flowContent']").val(res.data[0].flowContent)
 					} else{
 						$('.modeifyShop').hide()
 					}
@@ -136,23 +142,24 @@ $(function(){
 		$(this).parent().next().children('.couponIntro').eq($(this).find("option:selected").index()).addClass("db").siblings().removeClass("db")
 	})
 	//增加优惠卷
-	$('.l-formButton').click(function(){
+	$('.addCouponBtn .l-formButton').click(function(){
 		var elemCoupon = '<div class="l-formBox">'+
 							'<span class="l-formCloseBtn">删除</span>'+
 							'<div class="l-formRowView">'+
 								'<span class="l-formTitle">优惠形式</span>'+
 								'<select class="l-formSelect" name="couponType">'+
-									'<option value="0">代金卷</option>'+
-									'<option value="1">折扣卷</option>'+
-									'<option value="2">赠品卷</option>'+
+									'<option value="0">代金券</option>'+
+									'<option value="1">折扣券</option>'+
+									'<option value="2">赠品券</option>'+
 								'</select>'+
 							'</div>'+
 							'<div class="l-formRowView">'+
 								'<span class="l-formTitle">优惠内容</span>'+
-								'<input class="l-formInput" type="text" name="couponValue" value="" />'+
-								'<span class="l-formInputContent couponIntro db">元代金卷面值</span>'+
-								'<span class="l-formInputContent couponIntro">%折扣卷比例</span>'+
+								'<input class="l-formInput" onblur="checkWord(100,this)" placeholder="限50个字" type="text" name="couponValue" value="" />'+
+								'<span class="l-formInputContent couponIntro db">元代金券面值</span>'+
+								'<span class="l-formInputContent couponIntro">%折扣券比例</span>'+
 								'<span class="l-formInputContent couponIntro">每份赠品内容</span>'+
+								'<span class="l-formInputWarning">内容超长，已截取</span>'+
 							'</div>'+
 							'<div class="l-formRowView">'+
 								'<span class="l-formTitle">转发数量</span>'+
@@ -168,7 +175,7 @@ $(function(){
 		if ($('select[name="couponType"]').length>1) {
 			$(this).parent().remove()
 		} else{
-			showModelMes("至少设置一种优惠卷！")
+			showModelMes("至少设置一种优惠券！")
 		}
 	})
 	//控制优惠卷转发数量
@@ -183,7 +190,66 @@ $(function(){
 		$(this).parent().remove()
 		$('#container').removeClass('dn');
 	})
+	
+	//控制二维码大小
+	$('input[name="qrcode"]').blur(function(){
+		if($(this).val()<100){
+			$(this).val(100);
+		}
+		if($(this).val()>800){
+			$(this).val(800);
+		}
+	})
+	
+	//生成二维码
+	$('.l-codeButton').click(function(){
+		if (!$('input[name="qrcode"]').val()) {
+			showModelMes("请输入二维码需要大小（单位：px）")
+		} else{
+			$.ajax({
+				type:"get",
+				url:"http://139.196.73.183:8088/qrcode/geturl?shopId="+shopId+"&width="+parseInt($('input[name="qrcode"]').val()),
+				async:true,
+				beforeSend: function(request) {
+		            request.setRequestHeader("Authorization", token);
+		        },
+				contentType:"application/json",
+				success:function(result){
+//					console.log(result)
+					if (result.errorCode==0000) {
+						$('.qrcodeImg').attr("src",result.data)
+					} else if (result.errorCode==0007){	
+						showModelMes("登陆已过期，请重新登陆")
+						$('.yes').hide().siblings().show()
+					} else{
+						showModelMes(result.errorMsg)
+					}
+				},
+				error:function(xhr){
+					console.log(xhr)
+				}
+			});
+		}
+	})
+	
 })
+
+//限制长度
+function checkWord(len,evt){
+	//len为英文字符的个数，中文自动为其一般数量,evt是欲检测的对象
+	var str = evt.value;
+	var myLen = 0;
+	for(i=0; i<str.length&&myLen<=len; i++){
+		if(str.charCodeAt(i)>0&&str.charCodeAt(i)<128)
+			myLen++;
+		else
+			myLen+=2;
+		}
+	if(myLen>len){
+		$(evt).siblings(".l-formInputWarning").show().fadeOut(1200)
+		evt.value = str.substring(0,i-1);
+	}
+}
 
 //格式划两位数
 function twonumber(num) {
@@ -281,7 +347,7 @@ function addShopFrom(form){
     } else if (!features){
     	showModelMes("请输入 1 ~ 3 种餐厅特色！")
     } else if (couponList.length<1){
-    	showModelMes("请设置至少一种优惠卷！")
+    	showModelMes("请设置至少一种优惠券！")
     } else if (!form.openTime.value){
     	showModelMes("请输入营业时间！")
     } else if (!form.indoorDevice.value){
@@ -300,18 +366,22 @@ function addShopFrom(form){
     		introImages:imgArrIntro,
     		isHot:form.isHot.value,
     		openTime:form.openTime.value,
-    		shopActivity:form.shopActivity.value,
+//  		shopActivity:form.shopActivity.value,
     		shopAddress:form.shopAddress.value,
     		shopIntro:form.shopIntro.value,
     		shopName:form.shopName.value,
     		signDish:form.signDish.value,
     		warmPrompt:form.useRule.value,
-    		simpleIntro:form.synopsis.value
+    		simpleIntro:form.synopsis.value,
+    		flowTitle:form.flowTitle.value,
+    		flowContent:form.flowContent.value,
+    		longitude:form.longitude.value,
+    		latitude:form.latitude.value
     	}
 //  	console.log(data)
     	$.ajax({
 			type:"post",
-			url:"http://47.100.12.188:8088/shop/add",
+			url:"http://139.196.73.183:8088/shop/add",
 			async:true,
 			data:JSON.stringify(data),
 			beforeSend: function(request) {
@@ -319,7 +389,7 @@ function addShopFrom(form){
 	        },
 			contentType:"application/json",
 			success:function(result){
-				console.log(result)
+//				console.log(result)
 				if (result.errorCode==0000) {
 					showModelMes("设置成功！")
 					setTimeout(function(){
@@ -382,7 +452,7 @@ function modeifyShopFrom(form){
     } else if (!features){
     	showModelMes("请输入 1 ~ 3 种餐厅特色！")
     } else if (couponList.length<1){
-    	showModelMes("请设置至少一种优惠卷！")
+    	showModelMes("请设置至少一种优惠券！")
     } else if (!form.openTime.value){
     	showModelMes("请输入营业时间！")
     } else if (!form.indoorDevice.value){
@@ -402,18 +472,22 @@ function modeifyShopFrom(form){
     		introImages:imgArrIntro,
     		isHot:form.isHot.value,
     		openTime:form.openTime.value,
-    		shopActivity:form.shopActivity.value,
+//  		shopActivity:form.shopActivity.value,
     		shopAddress:form.shopAddress.value,
     		shopIntro:form.shopIntro.value,
     		shopName:form.shopName.value,
     		signDish:form.signDish.value,
     		warmPrompt:form.useRule.value,
-    		simpleIntro:form.synopsis.value
+    		simpleIntro:form.synopsis.value,
+    		flowTitle:form.flowTitle.value,
+    		flowContent:form.flowContent.value,
+    		longitude:form.longitude.value,
+    		latitude:form.latitude.value
     	}
 //  	console.log(data)
     	$.ajax({
 			type:"post",
-			url:"http://47.100.12.188:8088/shop/updateshop",
+			url:"http://139.196.73.183:8088/shop/updateshop",
 			async:true,
 			data:JSON.stringify(data),
 			beforeSend: function(request) {

@@ -43,12 +43,12 @@ function register(form){
 		console.log(data)
 		$.ajax({
 			type:"post",
-			url:"http://47.100.12.188:8088/register",
+			url:"http://139.196.73.183:8088/register",
 			async:true,
 			data:JSON.stringify(data),
 			contentType:"application/json",
 			success:function(result){
-				console.log(result)
+//				console.log(result)
 				if (result.errorCode==0000) {
 					$('#registerForm')[0].reset();
 					showModelMes("注册成功!")

@@ -58,12 +58,12 @@ function login(form){
 //		console.log(data)
 		$.ajax({
 			type:"post",
-			url:"http://47.100.12.188:8088/login",
+			url:"http://139.196.73.183:8088/login",
 			async:true,
 			data:JSON.stringify(data),
 			contentType:"application/json",
 			success:function(result){
-				console.log(result)
+//				console.log(result)
 				if (result.errorCode==0000) {
 					$('#loginForm')[0].reset();
 //					window.location.href="index.html?userId="+result.data.userId+"&userName="+result.data.userName

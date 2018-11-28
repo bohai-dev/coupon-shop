@@ -414,6 +414,12 @@ a.btn:hover{
 	color: #666;
     font-size: 14px;
 }
+.l-formInputWarning{
+	color: #e85759;
+    font-size: 14px;
+    margin-left: 10px;
+    display: none;
+}
 .l-formButton{
 	width: 200px;
     height: 40px;
@@ -437,6 +443,7 @@ a.btn:hover{
     vertical-align: top;
     padding: 10px;
     outline: 0;
+    margin-right: 10px;
 }
 .l-formSubmitBtn{
 	border: 1px solid #248992;
@@ -483,4 +490,16 @@ a.btn:hover{
 .l-formCloseBtn:hover{
 	background: #eee;
 	color: #f66;
+}
+.qrcode{
+	display: none;
+}
+.l-codeButton{
+	width: 224px;
+    height: 42px;
+    background: linear-gradient(to right,rgb(214,68, 104),rgb(235,104, 109));
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
 }

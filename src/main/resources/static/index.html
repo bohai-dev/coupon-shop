@@ -42,34 +42,44 @@
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅名称</span>
-							<input class="l-formInput" type="text" name="shopName" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(40,this)" name="shopName" value="" />
+							<span class="l-formInputContent">限20个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅地址</span>
-							<input class="l-formInput" type="text" name="shopAddress" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(200,this)" name="shopAddress" value="" />
+							<span class="l-formInputContent">限100个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅简介</span>
-							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="synopsis" value="" ></textarea>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" onblur="checkWord(400,this)" name="synopsis" value="" ></textarea>
+							<span class="l-formInputContent">限200个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>详细介绍</span>
-							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopIntro" value="" ></textarea>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" onblur="checkWord(800,this)" name="shopIntro" value="" ></textarea>
+							<span class="l-formInputContent">限400个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>联系方式</span>
-							<input class="l-formInput" type="text" name="contactWay" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(200,this)" name="contactWay" value="" />
+							<span class="l-formInputContent">限100个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅分类</span>
 							<select class="l-formSelect" name="classId">
 								<option value="0">粤菜经典</option>
-								<option value="1">正宗北方</option>
-								<option value="2">川湘麻辣</option>
-								<option value="3">本帮江浙</option>
-								<option value="4">饮品甜点</option>
-								<option value="5">云贵味道</option>
-								<option value="6">最夯台味</option>
+								<option value="1">云贵味道</option>
+								<option value="2">饮品甜点</option>
+								<option value="3">最夯台味</option>
+								<option value="4">正宗北方</option>
+								<option value="5">本帮江浙</option>
+								<option value="6">川湘麻辣</option>
 								<option value="7">国际饭儿</option>
 							</select>
 						</div>
@@ -82,9 +92,18 @@
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅特色</span>
-							<input class="l-formInputSmall" maxlength="6" placeholder="限六个字" type="text" name="features" value="" />
-							<input class="l-formInputSmall" maxlength="6" placeholder="限六个字" type="text" name="features" value="" />
-							<input class="l-formInputSmall" maxlength="6" placeholder="限六个字" type="text" name="features" value="" />
+							<input class="l-formInputSmall" onblur="checkWord(12,this)" placeholder="限六个字" type="text" name="features" value="" />
+							<input class="l-formInputSmall" onblur="checkWord(12,this)" placeholder="限六个字" type="text" name="features" value="" />
+							<input class="l-formInputSmall" onblur="checkWord(12,this)" placeholder="限六个字" type="text" name="features" value="" />
+							<span class="l-formInputWarning">内容超长，已截取</span>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle">经度</span>
+							<input class="l-formInput" type="number" name="longitude" value="" />
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle">纬度</span>
+							<input class="l-formInput" type="number" name="latitude" value="" />
 						</div>
 					</div>
 					<div class="l-srction-tips">转YOYO分享优惠</div>
@@ -94,17 +113,18 @@
 							<div class="l-formRowView">
 								<span class="l-formTitle">优惠形式</span>
 								<select class="l-formSelect" name="couponType">
-									<option value="0">代金卷</option>
-									<option value="1">折扣卷</option>
-									<option value="2">赠品卷</option>
+									<option value="0">代金券</option>
+									<option value="1">折扣券</option>
+									<option value="2">赠品券</option>
 								</select>
 							</div>
 							<div class="l-formRowView">
 								<span class="l-formTitle">优惠内容</span>
-								<input class="l-formInput" type="text" name="couponValue" value="" />
-								<span class="l-formInputContent couponIntro db">元代金卷面值</span>
-								<span class="l-formInputContent couponIntro">%折扣卷比例</span>
+								<input class="l-formInput" onblur="checkWord(100,this)" placeholder="限50个字" type="text" name="couponValue" value="" />
+								<span class="l-formInputContent couponIntro db">元代金券面值</span>
+								<span class="l-formInputContent couponIntro">%折扣券比例</span>
 								<span class="l-formInputContent couponIntro">每份赠品内容</span>
+								<span class="l-formInputWarning">内容超长，已截取</span>
 							</div>
 							<div class="l-formRowView">
 								<span class="l-formTitle">转发数量</span>
@@ -121,36 +141,69 @@
 					<div class="l-shopInfo">
 						<div class="l-formRowView">
 							<span class="l-formTitle">提示内容</span>
-							<textarea class="l-formTextarea" type="text" name="useRule" value="" /></textarea>
+							<textarea class="l-formTextarea" type="text" onblur="checkWord(400,this)" name="useRule" value="" /></textarea>
+							<span class="l-formInputContent">限200个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 					</div>
 					<div class="l-srction-tips">店内用餐</div>
 					<div class="l-shopInfo">
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>营业时间</span>
-							<input class="l-formInput" type="text" name="openTime" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(100,this)" name="openTime" value="" />
+							<span class="l-formInputContent">限50个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle">用餐高峰</span>
-							<input class="l-formInput" type="text" name="heightTime" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(100,this)" name="heightTime" value="" />
+							<span class="l-formInputContent">限50个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅设施</span>
-							<input class="l-formInput" type="text" name="indoorDevice" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(200,this)" name="indoorDevice" value="" />
+							<span class="l-formInputContent">限100个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 					</div>
 					<div class="l-srction-tips">招牌菜品</div>
 					<div class="l-shopInfo">
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>招牌菜品</span>
-							<input class="l-formInput" type="text" name="signDish" value="" />
+							<input class="l-formInput" type="text" onblur="checkWord(200,this)" name="signDish" value="" />
+							<span class="l-formInputContent">限100个字，多个内容可用英文 ；(分号)隔开</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 					</div>
 					<div class="l-srction-tips">店内活动 / 菜品介绍</div>
 					<div class="l-shopInfo">
-						<div class="l-formRowView">
-							<span class="l-formTitle">店内现有活动</span>
+						<!--<div class="l-formRowView">
+							<span class="l-formTitle">特色介绍</span>
 							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopActivity" value="" ></textarea>
+						</div>-->
+						<div class="l-formRowView">
+							<span class="l-formTitle">流动标题</span>
+							<input class="l-formInput" type="text" onblur="checkWord(20,this)" name="flowTitle" value="" />
+							<span class="l-formInputContent">限10个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle">流动内容</span>
+							<textarea class="l-formTextarea" type="text" onblur="checkWord(400,this)" name="flowContent" value="" /></textarea>
+							<span class="l-formInputContent">限200个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
+						</div>
+						<div class="qrcode">
+							<div class="l-formRowView">
+								<span class="l-formTitle">二维码宽度</span>
+								<input class="l-formInputSmall" type="number" placeholder="100~800" name="qrcode" value="" />
+								<input class="l-codeButton" type="button" name="" value="点击生成二维码" />
+							</div>
+							<div class="l-formRowView">
+								<span class="l-formTitle"></span>
+								<img class="qrcodeImg" src=""/>
+							</div>
 						</div>
 					</div>
 					<input class="l-formSubmitBtn addShop" type="button" value="确定" onclick="addShopFrom(this.form)"/>
