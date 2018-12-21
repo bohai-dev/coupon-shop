@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiaosheng.coupon.dao.SpecialDishesMapper">
+    <resultMap id="BaseResultMap" type="com.qiaosheng.coupon.domain.SpecialDishes">
+        <id column="DISH_ID" jdbcType="VARCHAR" property="dishId"/>
+        <result column="SHOP_ID" jdbcType="VARCHAR" property="shopId"/>
+        <result column="IMAGE_PATH" jdbcType="VARCHAR" property="imagePath"/>
+        <result column="DISH_PRICE" jdbcType="VARCHAR" property="dishPrice"/>
+        <result column="DISH_NAME" jdbcType="VARCHAR" property="dishName"/>
+        <result column="IS_DELETE" jdbcType="VARCHAR" property="isDelete"/>
+        <result column="BACK_COLUMN1" jdbcType="VARCHAR" property="backColumn1"/>
+        <result column="BACK_COLUMN2" jdbcType="VARCHAR" property="backColumn2"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    DISH_ID, SHOP_ID, IMAGE_PATH, DISH_PRICE, DISH_NAME, IS_DELETE, BACK_COLUMN1, BACK_COLUMN2
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from SPECIAL_DISHES
+        where DISH_ID = #{dishId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SPECIAL_DISHES
+    where DISH_ID = #{dishId,jdbcType=VARCHAR}
+  </delete>
+
+    <insert id="insertSelective" parameterType="com.qiaosheng.coupon.domain.SpecialDishes">
+        insert into SPECIAL_DISHES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dishId != null">
+                DISH_ID,
+            </if>
+            <if test="shopId != null">
+                SHOP_ID,
+            </if>
+            <if test="imagePath != null">
+                IMAGE_PATH,
+            </if>
+            <if test="dishPrice != null">
+                DISH_PRICE,
+            </if>
+            <if test="dishName != null">
+                DISH_NAME,
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE,
+            </if>
+            <if test="backColumn1 != null">
+                BACK_COLUMN1,
+            </if>
+            <if test="backColumn2 != null">
+                BACK_COLUMN2,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dishId != null">
+                #{dishId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="imagePath != null">
+                #{imagePath,jdbcType=VARCHAR},
+            </if>
+            <if test="dishPrice != null">
+                #{dishPrice,jdbcType=VARCHAR},
+            </if>
+            <if test="dishName != null">
+                #{dishName,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=VARCHAR},
+            </if>
+            <if test="backColumn1 != null">
+                #{backColumn1,jdbcType=VARCHAR},
+            </if>
+            <if test="backColumn2 != null">
+                #{backColumn2,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <insert id="insertList" parameterType="List">
+        insert into SPECIAL_DISHES
+        (
+        DISH_ID, SHOP_ID, IMAGE_PATH, DISH_PRICE, DISH_NAME,
+        IS_DELETE, BACK_COLUMN1, BACK_COLUMN2
+
+        )
+        <foreach item="item" index="index" collection="list" separator="union all">
+            ( SELECT
+            #{item.dishId},
+            #{item.shopId},
+            #{item.imagePath},
+            #{item.dishPrice},
+            #{item.dishName},
+            #{item.isDelete},
+            #{item.backColumn1},
+            #{item.backColumn2}
+            FROM DUAL
+            )
+        </foreach>
+
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.SpecialDishes">
+        update SPECIAL_DISHES
+        <set>
+            <if test="shopId != null">
+                SHOP_ID = #{dishId,jdbcType=VARCHAR},
+            </if>
+            <if test="imagePath != null">
+                IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+            </if>
+            <if test="dishPrice != null">
+                DISH_PRICE = #{dishPrice,jdbcType=VARCHAR},
+            </if>
+            <if test="dishName != null">
+                DISH_NAME = #{dishName,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+            </if>
+            <if test="backColumn1 != null">
+                BACK_COLUMN1 = #{backColumn1,jdbcType=VARCHAR},
+            </if>
+            <if test="backColumn2 != null">
+                BACK_COLUMN2 = #{backColumn2,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where DISH_ID = #{dishId,jdbcType=VARCHAR}
+    </update>
+
+
+</mapper>
