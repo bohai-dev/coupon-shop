@@ -23,7 +23,7 @@ public class TokenService {
     private String token;
 
 
-    @Scheduled(fixedRate = 2*50*60*1000)
+    @Scheduled(fixedRate = 2*50*60*1000)  //  100分钟刷新一次
     public void  obtainToken(){
         StringBuilder tokenUrl=new StringBuilder("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential");
         tokenUrl.append("&appid=").append(APPID).append("&secret=").append(SECRET);
@@ -40,7 +40,7 @@ public class TokenService {
             }else {
                 //获取错误信息
                 String errorMsg=jsonObject.getString("errmsg");
-                LOGGER.error("获取token错误:"+errorCode+","+errorMsg);
+                LOGGER.error("获取token错误:{"+errorCode+","+errorMsg+"}");
             }
 
         } catch (Exception e) {

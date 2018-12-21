@@ -2,8 +2,10 @@ package com.qiaosheng.coupon.service.impl;
 
 import com.qiaosheng.coupon.dao.CouponMapper;
 import com.qiaosheng.coupon.dao.ShopMapper;
+import com.qiaosheng.coupon.dao.SpecialDishesMapper;
 import com.qiaosheng.coupon.domain.Coupon;
 import com.qiaosheng.coupon.domain.Shop;
+import com.qiaosheng.coupon.domain.SpecialDishes;
 import com.qiaosheng.coupon.service.ShopService;
 import com.qiaosheng.coupon.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by cxy on 2018/11/6
@@ -24,6 +27,9 @@ public class ShopServiceImpl  implements ShopService {
 
     @Autowired
     CouponMapper couponMapper;
+
+    @Autowired
+    SpecialDishesMapper dishesMapper;
 
     @Override
     @Transactional
@@ -58,6 +64,21 @@ public class ShopServiceImpl  implements ShopService {
             }
         }
 
+        //添加招牌菜品
+        List<SpecialDishes> specialDishes=shop.getSpecialDishes();
+        if (specialDishes!=null){
+            specialDishes.forEach(dish->{
+                dish.setDishId(shopMapper.generateUserId());
+                dish.setShopId(shopId);
+                dish.setIsDelete("0");
+                dish.setBackColumn1("");
+                dish.setBackColumn2("");
+            });
+            dishesMapper.insertList(specialDishes);
+        }
+
+
+
         shopMapper.insertSelective(shop);
 
 
@@ -71,6 +92,10 @@ public class ShopServiceImpl  implements ShopService {
             //设置优惠券list
             List<Coupon> couponList=couponMapper.selectByShopId(shop.getShopId());
             shop.setCouponList(couponList);
+
+            //设置招牌菜品list
+            List<SpecialDishes> specialDishes=dishesMapper.selectByShopId(shop.getShopId());
+            shop.setSpecialDishes(specialDishes);
         }
         return shopList;
     }
@@ -82,8 +107,10 @@ public class ShopServiceImpl  implements ShopService {
         String shopNo=shop.getShopId();
 
         //删除店铺原来的优惠券
-        int deleteCount=couponMapper.deleteByShopId(shopNo);
+        int  couponDeleteCount=couponMapper.deleteByShopId(shopNo);
 
+        //删除原来的招牌菜品
+        int dishesDeleteCount=dishesMapper.deleteByShopId(shopNo);
         //添加优惠券列表
         List<Coupon> couponList=shop.getCouponList();
         if (couponList!=null){
@@ -102,6 +129,18 @@ public class ShopServiceImpl  implements ShopService {
                 couponMapper.insertSelective(coupon);
 
             }
+        }
+        //添加招牌菜品
+        List<SpecialDishes> specialDishes=shop.getSpecialDishes();
+        if (specialDishes!=null){
+            specialDishes.forEach(dish->{
+                dish.setDishId(shopMapper.generateUserId());
+                dish.setShopId(shopNo);
+                dish.setIsDelete("0");
+                dish.setBackColumn1("");
+                dish.setBackColumn2("");
+            });
+            dishesMapper.insertList(specialDishes);
         }
 
         shop.setUpdataTime(new Date());

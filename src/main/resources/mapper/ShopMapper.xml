@@ -28,12 +28,16 @@
     <result column="FLOW_CONTENT" property="flowContent" jdbcType="VARCHAR" />
     <result column="LONGITUDE" property="longitude" jdbcType="VARCHAR" />
     <result column="LATITUDE" property="latitude" jdbcType="VARCHAR" />
+    <result column="TOP_IMAGE_PATH" property="topImagePath" jdbcType="VARCHAR" />
+    <result column="SHARE_TITLE" property="shareTitle" jdbcType="VARCHAR" />
+    <result column="SHARE_IMAGE_PATH" property="shareImagePath" jdbcType="VARCHAR" />
+
   </resultMap>
   <sql id="Base_Column_List" >
     SHOP_ID, SHOP_NAME, INTRO_IMAGES, SHOP_ADDRESS, CONTACT_WAY, FEATURES, SHOP_INTRO, 
     OPEN_TIME, HEIGHT_TIME, INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, SCAN_TIMES, ADMIN_USER_ID, 
     SIMPLE_INTRO, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
-    IS_DELETE,FLOW_TITLE,FLOW_CONTENT,LONGITUDE,LATITUDE
+    IS_DELETE,FLOW_TITLE,FLOW_CONTENT,LONGITUDE,LATITUDE,TOP_IMAGE_PATH,SHARE_TITLE,SHARE_IMAGE_PATH
   </sql>
   <select id="selectConditions" resultMap="BaseResultMap" parameterType="com.qiaosheng.coupon.domain.Shop" >
     select 
@@ -57,7 +61,7 @@
       </if>
        and IS_DELETE='0'
     </where>
-
+     order by UPDATA_TIME desc
   </select>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -151,6 +155,15 @@
       <if test="latitude != null" >
         LATITUDE,
       </if>
+      <if test="topImagePath != null" >
+        TOP_IMAGE_PATH,
+      </if>
+      <if test="shareTitle != null" >
+        SHARE_TITLE,
+      </if>
+      <if test="shareImagePath != null" >
+        SHARE_IMAGE_PATH,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="shopId != null" >
@@ -231,6 +244,15 @@
       <if test="latitude != null" >
         #{latitude,jdbcType=VARCHAR},
       </if>
+      <if test="topImagePath != null" >
+        #{topImagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTitle != null" >
+        #{shareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="shareImagePath != null" >
+        #{shareImagePath,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.Shop" >
@@ -310,6 +332,15 @@
       </if>
       <if test="latitude != null" >
         LATITUDE = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="topImagePath != null" >
+        TOP_IMAGE_PATH=#{topImagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="shareTitle != null" >
+        SHARE_TITLE=#{shareTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="shareImagePath != null" >
+        SHARE_IMAGE_PATH=#{shareImagePath,jdbcType=VARCHAR},
       </if>
     </set>
     where SHOP_ID = #{shopId,jdbcType=VARCHAR}

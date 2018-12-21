@@ -23,7 +23,7 @@
 		</commentGenerator>
 		
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@47.100.12.188:1521:xe" password="YOUHUI"
+			connectionURL="jdbc:oracle:thin:@139.196.73.183:1521:xe" password="YOUHUI"
 			userId="YOUHUI" />
 
 		<!-- 生成model模型 -->
@@ -47,7 +47,7 @@
 
 
 
-		<table schema="" tableName="COUPON" domainObjectName="Coupon"
+		<table schema="" tableName="SPECIAL_DISHES" domainObjectName="SpecialDishes"
 			enableSelectByExample="false" enableDeleteByExample="false"
 			enableCountByExample="false" enableUpdateByExample="false"
 			selectByExampleQueryId="false">

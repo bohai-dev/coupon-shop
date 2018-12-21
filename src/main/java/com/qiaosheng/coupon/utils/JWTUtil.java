@@ -29,6 +29,7 @@ public class JWTUtil {
     public static void checkToken(String token) throws Exception{
         try {
             final Claims claims = Jwts.parser().setSigningKey(base64EncodedSecretKey).parseClaimsJws(token).getBody();
+
         } catch (ExpiredJwtException e1) {
             throw new Exception("token expired");
         } catch (Exception e) {

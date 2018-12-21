@@ -75,6 +75,17 @@ public class Shop {
     //纬度
     private String latitude;
 
+    //顶部图片路径
+    private String topImagePath;
+
+    //分享标题
+    private String shareTitle;
+
+    //分享图片路径
+    private String shareImagePath;
+    //招牌菜品
+    private List<SpecialDishes> specialDishes;
+
 
 
 
@@ -298,6 +309,38 @@ public class Shop {
         this.latitude = latitude;
     }
 
+    public String getTopImagePath() {
+        return topImagePath;
+    }
+
+    public void setTopImagePath(String topImagePath) {
+        this.topImagePath = topImagePath;
+    }
+
+    public String getShareTitle() {
+        return shareTitle;
+    }
+
+    public void setShareTitle(String shareTitle) {
+        this.shareTitle = shareTitle;
+    }
+
+    public String getShareImagePath() {
+        return shareImagePath;
+    }
+
+    public void setShareImagePath(String shareImagePath) {
+        this.shareImagePath = shareImagePath;
+    }
+
+    public List<SpecialDishes> getSpecialDishes() {
+        return specialDishes;
+    }
+
+    public void setSpecialDishes(List<SpecialDishes> specialDishes) {
+        this.specialDishes = specialDishes;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -327,6 +370,10 @@ public class Shop {
                 ", flowContent='" + flowContent + '\'' +
                 ", longitude='" + longitude + '\'' +
                 ", latitude='" + latitude + '\'' +
+                ", topImagePath='" + topImagePath + '\'' +
+                ", shareTitle='" + shareTitle + '\'' +
+                ", shareImagePath='" + shareImagePath + '\'' +
+                ", specialDishes=" + specialDishes +
                 ", couponList=" + couponList +
                 '}';
     }
