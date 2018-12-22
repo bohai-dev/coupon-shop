@@ -11,7 +11,7 @@ public class Shop {
 
     @NotBlank(message = "店铺名称不能为空")
     private String shopName;
-    @NotBlank(message = "店铺图片不能为空")
+    //@NotBlank(message = "店铺图片不能为空")
     private String introImages;
     @NotBlank(message = "店铺地址不能为空")
     private String shopAddress;
@@ -30,7 +30,7 @@ public class Shop {
     @NotBlank(message = "店铺室内设施不能为空")
     private String indoorDevice;
 
-    @NotBlank(message = "店铺招牌菜品不能为空")
+   // @NotBlank(message = "店铺招牌菜品不能为空")
     private String signDish;
 
      //店内现有活动

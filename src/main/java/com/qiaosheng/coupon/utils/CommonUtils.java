@@ -12,7 +12,7 @@ public class CommonUtils {
 
 
     /**
-     * 根据数字生成指定格式的编号
+     * 根据数字生成指定格式的短编号: 5位
      * @param num
      * @return
      */
@@ -23,7 +23,7 @@ public class CommonUtils {
       return  str;
   }
     /**
-     * 根据数字生成指定格式的编号
+     * 根据数字生成指定格式的长编号: 9位
      * @param num
      * @return
      */

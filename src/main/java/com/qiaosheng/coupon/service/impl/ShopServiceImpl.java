@@ -69,7 +69,7 @@ public class ShopServiceImpl  implements ShopService {
         if (specialDishes!=null){
             specialDishes.forEach(dish->{
                 dish.setDishId(shopMapper.generateUserId());
-                dish.setShopId(shopId);
+                dish.setShopId(shopNo);
                 dish.setIsDelete("0");
                 dish.setBackColumn1("");
                 dish.setBackColumn2("");
