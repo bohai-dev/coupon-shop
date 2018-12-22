@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by cxy on 2018/11/6
@@ -30,6 +29,7 @@ public class ShopServiceImpl  implements ShopService {
 
     @Autowired
     SpecialDishesMapper dishesMapper;
+
 
     @Override
     @Transactional
@@ -67,14 +67,17 @@ public class ShopServiceImpl  implements ShopService {
         //添加招牌菜品
         List<SpecialDishes> specialDishes=shop.getSpecialDishes();
         if (specialDishes!=null){
-            specialDishes.forEach(dish->{
-                dish.setDishId(shopMapper.generateUserId());
+            for (SpecialDishes dish: specialDishes){
+                dish.setDishId(dishesMapper.generateId());
                 dish.setShopId(shopNo);
                 dish.setIsDelete("0");
                 dish.setBackColumn1("");
                 dish.setBackColumn2("");
-            });
-            dishesMapper.insertList(specialDishes);
+
+                dishesMapper.insertSelective(dish);
+            }
+
+           // dishesMapper.insertList(specialDishes);
         }
 
 
@@ -133,14 +136,17 @@ public class ShopServiceImpl  implements ShopService {
         //添加招牌菜品
         List<SpecialDishes> specialDishes=shop.getSpecialDishes();
         if (specialDishes!=null){
-            specialDishes.forEach(dish->{
-                dish.setDishId(shopMapper.generateUserId());
+            for(SpecialDishes dish : specialDishes){
+                String generateId=dishesMapper.generateId();
+                dish.setDishId(generateId);
                 dish.setShopId(shopNo);
                 dish.setIsDelete("0");
                 dish.setBackColumn1("");
                 dish.setBackColumn2("");
-            });
-            dishesMapper.insertList(specialDishes);
+
+                dishesMapper.insertSelective(dish);
+            }
+           // dishesMapper.insertList(specialDishes);
         }
 
         shop.setUpdataTime(new Date());

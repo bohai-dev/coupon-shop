@@ -2,6 +2,7 @@ package com.qiaosheng.coupon.dao;
 
 import com.qiaosheng.coupon.domain.Coupon;
 import com.qiaosheng.coupon.domain.Shop;
+import com.qiaosheng.coupon.domain.SpecialDishes;
 import com.qiaosheng.coupon.utils.CommonUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,6 +64,24 @@ public class ShopMapperTest {
         boolean b = m.matches();
         System.out.println("验证结果:"+b);
 
+
+    }
+
+    @Test
+    public void generateIdTest(){
+        List<SpecialDishes> list=new ArrayList<>();
+
+        for (int i = 0; i <5 ; i++) {
+            //String id=shopMapper.generateUserId();
+           // System.out.println(id);
+            SpecialDishes specialDishes=new SpecialDishes();
+            specialDishes.setDishName("特色"+i);
+            list.add(specialDishes);
+        }
+        for (SpecialDishes dishes: list){
+            dishes.setDishId(shopMapper.generateUserId());
+        }
+        System.out.println(list);
 
     }
 

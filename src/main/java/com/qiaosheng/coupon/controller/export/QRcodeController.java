@@ -76,7 +76,6 @@ public class QRcodeController {
                 os.flush();
                 os.close();
             }
-            //return  imageStream;
         } catch (Exception e) {
             e.printStackTrace();
         }

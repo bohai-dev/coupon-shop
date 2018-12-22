@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by cxy on 2018/11/13
  * token 验证切面
  */
-@Component
+//@Component
 @Aspect
 @Order(1)   //值越小，优先级越高
 public class TokenVertifyAspect {
