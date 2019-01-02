@@ -1,6 +1,7 @@
 package com.qiaosheng.coupon.dao;
 
 import com.qiaosheng.coupon.domain.SpecialDishes;
+import com.qiaosheng.coupon.vo.CouponCount;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,15 @@ public class SpecialDishesMapperTest {
 
     @Autowired
     SpecialDishesMapper dishesMapper;
+
+    @Autowired
+    CouponCountMapper countMapper;
+
+    @Test
+    public void couponCountTest(){
+        List<CouponCount> list=countMapper.selectCount();
+        System.out.println(list.size());
+    }
 
 
 }
