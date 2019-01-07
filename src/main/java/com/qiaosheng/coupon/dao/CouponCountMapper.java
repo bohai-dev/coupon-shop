@@ -12,6 +12,6 @@ import java.util.List;
 @Mapper
 public interface CouponCountMapper {
 
-    @Select("select a.SHOP_ID,b.SHOP_NAME,count(a.COUPON_ID) as counponCount,a.COUPON_STATE from CUST_COUPON_RECORD a ,shop b where a.SHOP_ID = b.SHOP_ID  group by a.SHOP_ID,a.COUPON_STATE,b.SHOP_NAME order by a.SHOP_ID")
+    @Select("select a.SHOP_ID,b.SHOP_NAME,count(a.COUPON_ID) as COUPON_COUNT,a.COUPON_STATE from CUST_COUPON_RECORD a ,shop b where a.SHOP_ID = b.SHOP_ID AND to_char(a.CREATE_TIME,'yyyy-mm-dd')>='2018-12-20' group by a.SHOP_ID,a.COUPON_STATE,b.SHOP_NAME order by a.SHOP_ID")
     List<CouponCount> selectCount();
 }

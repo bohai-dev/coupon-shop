@@ -7,7 +7,7 @@ public class CouponCount {
 
     private String shopId;
     private String shopName;
-    private Integer counponCount;
+    private Integer couponCount;
     private Integer couponState;
 
     public String getShopId() {
@@ -26,12 +26,12 @@ public class CouponCount {
         this.shopName = shopName;
     }
 
-    public Integer getCounponCount() {
-        return counponCount;
+    public Integer getCouponCount() {
+        return couponCount;
     }
 
-    public void setCounponCount(Integer counponCount) {
-        this.counponCount = counponCount;
+    public void setCouponCount(Integer couponCount) {
+        this.couponCount = couponCount;
     }
 
     public Integer getCouponState() {
