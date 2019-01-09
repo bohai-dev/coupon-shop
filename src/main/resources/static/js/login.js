@@ -34,6 +34,18 @@ $(function(){
         delCookie('pswd');
       }
     })
+    
+    //回车登陆
+    document.onkeydown=function(e){
+		var keycode=document.all?event.keyCode:e.which;
+		if(keycode==13){
+			if($(".l-mask").is(":hidden")){
+			    $('.loginBtn').click();
+			}else{
+				$('.yes').click()
+			}
+		};
+	}
 })
 
 //登陆

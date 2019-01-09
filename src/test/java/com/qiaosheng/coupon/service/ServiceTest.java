@@ -27,6 +27,10 @@ public class ServiceTest {
     SpecialDishesMapper dishesMapper;
 
 
+
+
+
+
     @Test
     public void getTokenTest(){
 
@@ -51,10 +55,6 @@ public class ServiceTest {
             }
 
             dishesMapper.insertList(specialDishes);   //mybatis缓存导致每次都生成相同的序列id
-
-
-
-
 
 
     }
