@@ -5,9 +5,11 @@ import com.qiaosheng.coupon.vo.CouponCount;
 import com.qiaosheng.coupon.vo.ReturnBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.PublicKey;
 import java.util.List;
 
 /**
@@ -29,5 +31,15 @@ public class StatisticsController {
 
         return returnBody;
 
+    }
+
+    @GetMapping("/statistics/clickcount")
+    public ReturnBody<List<CouponCount>> clickCount(){
+        ReturnBody<List<CouponCount>> returnBody=new ReturnBody<>();
+        List<CouponCount> list=countMapper.selectClickCount();
+
+        returnBody.setData(list);
+
+        return returnBody;
     }
 }

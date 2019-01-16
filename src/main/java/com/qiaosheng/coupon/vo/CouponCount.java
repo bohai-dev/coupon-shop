@@ -9,6 +9,10 @@ public class CouponCount {
     private String shopName;
     private Integer couponCount;
     private Integer couponState;
+    private Integer scanTimes;
+    private Integer buttonCount;
+    private Integer shareCount;
+
 
     public String getShopId() {
         return shopId;
@@ -40,5 +44,29 @@ public class CouponCount {
 
     public void setCouponState(Integer couponState) {
         this.couponState = couponState;
+    }
+
+    public Integer getScanTimes() {
+        return scanTimes;
+    }
+
+    public void setScanTimes(Integer scanTimes) {
+        this.scanTimes = scanTimes;
+    }
+
+    public Integer getButtonCount() {
+        return buttonCount;
+    }
+
+    public void setButtonCount(Integer buttonCount) {
+        this.buttonCount = buttonCount;
+    }
+
+    public Integer getShareCount() {
+        return shareCount;
+    }
+
+    public void setShareCount(Integer shareCount) {
+        this.shareCount = shareCount;
     }
 }
