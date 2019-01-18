@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>消费者小程序-后台管理-重置转发状态</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/reset.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--重置转发状态-->
+		<div class="l-bg" id="app">
+			<div class="l-container">
+				<div class="l-srction-tips">重置</div>
+				<div class="l-resetInfo">
+					<input class="l-formSubmitBtn l-resetSubmitBtn" type="button" value="重置转发状态"/>
+				</div>
+				<div class="l-srction-tips">优惠券兑换统计</div>
+				<div class="l-resetInfo">
+					<table border="1" class="table">
+						<tr class="tableTitle">
+							<th>店铺编号</th><th>店铺名称</th><th>兑换状态</th><th>兑换数量</th>
+						<tr v-for="item in count">
+							<td>{{item.shopId}}</td>
+							<td>{{item.shopName}}</td>
+							<td>{{item.couponState==0?"已兑换未使用":"已兑换已使用"}}</td>
+							<td>{{item.couponCount}}</td>
+						</tr>
+						<tr v-if="noCount">
+							<td colspan="4">暂无记录</td>
+						</tr>
+	    			</table>
+    			</div>
+				<div class="l-srction-tips">点击量统计</div>
+				<div class="l-resetInfo">
+					<table border="1" class="table">
+						<tr class="tableTitle">
+							<th>店铺编号</th><th>店铺名称</th><th>详情页浏览量</th><th>转发按钮点击量</th><th>分享卡点击量</th>
+						<tr v-for="item in clickCount">
+							<td>{{item.shopId}}</td>
+							<td>{{item.shopName}}</td>
+							<td>{{item.scanTimes}}</td>
+							<td>{{item.buttonCount}}</td>
+							<td>{{item.shareCount}}</td>
+						</tr>
+						<tr v-if="noClickCount">
+							<td colspan="4">暂无记录</td>
+						</tr>
+	    			</table>
+    			</div>
+			</div>
+		</div>
+		<!--提示框-->
+		<div class="l-mask">
+			<div class="l-mask-model">
+				<div class="l-mask-modelChild">
+					<h3>提示</h3>
+					<p>成功！</p>
+					<div class="l-btnBox">
+						<button class="yes">确定</button>
+						<button class="backLogin">返回登陆</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

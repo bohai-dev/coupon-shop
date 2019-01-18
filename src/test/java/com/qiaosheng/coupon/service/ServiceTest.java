@@ -48,7 +48,6 @@ public class ServiceTest {
                 dish.setDishId(dishesMapper.generateId());
                 dish.setShopId("123");
                 dish.setIsDelete("0");
-                dish.setBackColumn1("");
                 dish.setBackColumn2("");
 
                 //dishesMapper.insertSelective(dish);

@@ -71,7 +71,6 @@ public class ShopServiceImpl  implements ShopService {
                 dish.setDishId(dishesMapper.generateId());
                 dish.setShopId(shopNo);
                 dish.setIsDelete("0");
-                dish.setBackColumn1("");
                 dish.setBackColumn2("");
 
                 dishesMapper.insertSelective(dish);
@@ -141,7 +140,6 @@ public class ShopServiceImpl  implements ShopService {
                 dish.setDishId(generateId);
                 dish.setShopId(shopNo);
                 dish.setIsDelete("0");
-                dish.setBackColumn1("");
                 dish.setBackColumn2("");
 
                 dishesMapper.insertSelective(dish);

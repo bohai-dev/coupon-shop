@@ -65,19 +65,33 @@ public class SpecialDishes {
         this.isDelete = isDelete == null ? null : isDelete.trim();
     }
 
-    public String getBackColumn1() {
-        return dishUnit;
-    }
-
-    public void setBackColumn1(String dishUnit) {
-        this.dishUnit = dishUnit == null ? null : dishUnit.trim();
-    }
-
     public String getBackColumn2() {
         return backColumn2;
     }
 
     public void setBackColumn2(String backColumn2) {
         this.backColumn2 = backColumn2 == null ? null : backColumn2.trim();
+    }
+
+    public String getDishUnit() {
+        return dishUnit;
+    }
+
+    public void setDishUnit(String dishUnit) {
+        this.dishUnit = dishUnit;
+    }
+
+    @Override
+    public String toString() {
+        return "SpecialDishes{" +
+                "dishId='" + dishId + '\'' +
+                ", shopId='" + shopId + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", dishPrice='" + dishPrice + '\'' +
+                ", dishName='" + dishName + '\'' +
+                ", isDelete='" + isDelete + '\'' +
+                ", dishUnit='" + dishUnit + '\'' +
+                ", backColumn2='" + backColumn2 + '\'' +
+                '}';
     }
 }
