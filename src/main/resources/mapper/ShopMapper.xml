@@ -31,13 +31,14 @@
     <result column="TOP_IMAGE_PATH" property="topImagePath" jdbcType="VARCHAR" />
     <result column="SHARE_TITLE" property="shareTitle" jdbcType="VARCHAR" />
     <result column="SHARE_IMAGE_PATH" property="shareImagePath" jdbcType="VARCHAR" />
-
+    <result column="SHOP_AREA" property="shopArea" jdbcType="VARCHAR" />
+    <result column="AVERAGE_CONSUME" property="averageConsume" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     SHOP_ID, SHOP_NAME, INTRO_IMAGES, SHOP_ADDRESS, CONTACT_WAY, FEATURES, SHOP_INTRO, 
     OPEN_TIME, HEIGHT_TIME, INDOOR_DEVICE, SIGN_DISH, SHOP_ACTIVITY, SCAN_TIMES, ADMIN_USER_ID, 
     SIMPLE_INTRO, BACKUP_COUMN2, CLASS_ID, IS_HOT, CREATE_TIME, UPDATA_TIME, WARM_PROMPT, 
-    IS_DELETE,FLOW_TITLE,FLOW_CONTENT,LONGITUDE,LATITUDE,TOP_IMAGE_PATH,SHARE_TITLE,SHARE_IMAGE_PATH
+    IS_DELETE,FLOW_TITLE,FLOW_CONTENT,LONGITUDE,LATITUDE,TOP_IMAGE_PATH,SHARE_TITLE,SHARE_IMAGE_PATH,SHOP_AREA,AVERAGE_CONSUME
   </sql>
   <select id="selectConditions" resultMap="BaseResultMap" parameterType="com.qiaosheng.coupon.domain.Shop" >
     select 
@@ -164,6 +165,12 @@
       <if test="shareImagePath != null" >
         SHARE_IMAGE_PATH,
       </if>
+      <if test="shopArea != null" >
+        SHOP_AREA,
+      </if>
+      <if test="averageConsume != null" >
+        AVERAGE_CONSUME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="shopId != null" >
@@ -253,6 +260,12 @@
       <if test="shareImagePath != null" >
         #{shareImagePath,jdbcType=VARCHAR},
       </if>
+      <if test="shopArea != null" >
+        #{shopArea,jdbcType=VARCHAR},
+      </if>
+      <if test="averageConsume != null" >
+        #{averageConsume,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.Shop" >
@@ -341,6 +354,12 @@
       </if>
       <if test="shareImagePath != null" >
         SHARE_IMAGE_PATH=#{shareImagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="shopArea != null" >
+        SHOP_AREA=#{shopArea,jdbcType=VARCHAR},
+      </if>
+      <if test="averageConsume != null" >
+        AVERAGE_CONSUME = #{averageConsume,jdbcType=VARCHAR},
       </if>
     </set>
     where SHOP_ID = #{shopId,jdbcType=VARCHAR}

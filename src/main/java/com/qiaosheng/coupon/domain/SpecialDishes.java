@@ -13,7 +13,7 @@ public class SpecialDishes {
 
     private String isDelete;
 
-    private String backColumn1;
+    private String dishUnit;
 
     private String backColumn2;
 
@@ -66,11 +66,11 @@ public class SpecialDishes {
     }
 
     public String getBackColumn1() {
-        return backColumn1;
+        return dishUnit;
     }
 
-    public void setBackColumn1(String backColumn1) {
-        this.backColumn1 = backColumn1 == null ? null : backColumn1.trim();
+    public void setBackColumn1(String dishUnit) {
+        this.dishUnit = dishUnit == null ? null : dishUnit.trim();
     }
 
     public String getBackColumn2() {

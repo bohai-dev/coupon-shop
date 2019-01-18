@@ -8,11 +8,11 @@
         <result column="DISH_PRICE" jdbcType="VARCHAR" property="dishPrice"/>
         <result column="DISH_NAME" jdbcType="VARCHAR" property="dishName"/>
         <result column="IS_DELETE" jdbcType="VARCHAR" property="isDelete"/>
-        <result column="BACK_COLUMN1" jdbcType="VARCHAR" property="backColumn1"/>
+        <result column="DISH_UNIT" jdbcType="VARCHAR" property="dishUnit"/>
         <result column="BACK_COLUMN2" jdbcType="VARCHAR" property="backColumn2"/>
     </resultMap>
     <sql id="Base_Column_List">
-    DISH_ID, SHOP_ID, IMAGE_PATH, DISH_PRICE, DISH_NAME, IS_DELETE, BACK_COLUMN1, BACK_COLUMN2
+    DISH_ID, SHOP_ID, IMAGE_PATH, DISH_PRICE, DISH_NAME, IS_DELETE, DISH_UNIT, BACK_COLUMN2
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
@@ -46,8 +46,8 @@
             <if test="isDelete != null">
                 IS_DELETE,
             </if>
-            <if test="backColumn1 != null">
-                BACK_COLUMN1,
+            <if test="dishUnit != null">
+                DISH_UNIT,
             </if>
             <if test="backColumn2 != null">
                 BACK_COLUMN2,
@@ -73,8 +73,8 @@
             <if test="isDelete != null">
                 #{isDelete,jdbcType=VARCHAR},
             </if>
-            <if test="backColumn1 != null">
-                #{backColumn1,jdbcType=VARCHAR},
+            <if test="dishUnit != null">
+                #{dishUnit,jdbcType=VARCHAR},
             </if>
             <if test="backColumn2 != null">
                 #{backColumn2,jdbcType=VARCHAR},
@@ -85,7 +85,7 @@
         insert into SPECIAL_DISHES
         (
         DISH_ID, SHOP_ID, IMAGE_PATH, DISH_PRICE, DISH_NAME,
-        IS_DELETE, BACK_COLUMN1, BACK_COLUMN2
+        IS_DELETE, DISH_UNIT, BACK_COLUMN2
 
         )
         <foreach item="item" index="index" collection="list" separator="union all">
@@ -96,7 +96,7 @@
             #{item.dishPrice},
             #{item.dishName},
             #{item.isDelete},
-            #{item.backColumn1},
+            #{item.dishUnit},
             #{item.backColumn2}
             FROM DUAL
             )
@@ -121,8 +121,8 @@
             <if test="isDelete != null">
                 IS_DELETE = #{isDelete,jdbcType=VARCHAR},
             </if>
-            <if test="backColumn1 != null">
-                BACK_COLUMN1 = #{backColumn1,jdbcType=VARCHAR},
+            <if test="dishUnit != null">
+                DISH_UNIT = #{dishUnit,jdbcType=VARCHAR},
             </if>
             <if test="backColumn2 != null">
                 BACK_COLUMN2 = #{backColumn2,jdbcType=VARCHAR},

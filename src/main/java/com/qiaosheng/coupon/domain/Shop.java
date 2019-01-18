@@ -85,11 +85,11 @@ public class Shop {
     private String shareImagePath;
     //招牌菜品
     private List<SpecialDishes> specialDishes;
-
-
-
-
     private List<Coupon> couponList;
+    //地区
+    private String shopArea;
+    //人均消费
+    private String averageConsume;
 
     public String getShopId() {
         return shopId;
@@ -341,6 +341,22 @@ public class Shop {
         this.specialDishes = specialDishes;
     }
 
+    public String getShopArea() {
+        return shopArea;
+    }
+
+    public void setShopArea(String shopArea) {
+        this.shopArea = shopArea;
+    }
+
+    public String getAverageConsume() {
+        return averageConsume;
+    }
+
+    public void setAverageConsume(String averageConsume) {
+        this.averageConsume = averageConsume;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -375,6 +391,8 @@ public class Shop {
                 ", shareImagePath='" + shareImagePath + '\'' +
                 ", specialDishes=" + specialDishes +
                 ", couponList=" + couponList +
+                ", shopArea='" + shopArea + '\'' +
+                ", averageConsume='" + averageConsume + '\'' +
                 '}';
     }
 }
