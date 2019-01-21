@@ -45,7 +45,8 @@ public class Shop {
     @NotBlank(message = "店铺简介不能为空")
     private String simpleIntro;
 
-    private String backupCoumn2;
+    //公众号文章地址
+    private String articleUrl;
 
     @NotBlank(message = "所属分类不能为空")
     private String classId;
@@ -205,13 +206,6 @@ public class Shop {
 
 
 
-    public String getBackupCoumn2() {
-        return backupCoumn2;
-    }
-
-    public void setBackupCoumn2(String backupCoumn2) {
-        this.backupCoumn2 = backupCoumn2 == null ? null : backupCoumn2.trim();
-    }
 
     public String getClassId() {
         return classId;
@@ -357,6 +351,14 @@ public class Shop {
         this.averageConsume = averageConsume;
     }
 
+    public String getArticleUrl() {
+        return articleUrl;
+    }
+
+    public void setArticleUrl(String articleUrl) {
+        this.articleUrl = articleUrl;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -375,7 +377,7 @@ public class Shop {
                 ", scanTimes=" + scanTimes +
                 ", adminUserId='" + adminUserId + '\'' +
                 ", simpleIntro='" + simpleIntro + '\'' +
-                ", backupCoumn2='" + backupCoumn2 + '\'' +
+                ", articleUrl='" + articleUrl + '\'' +
                 ", classId='" + classId + '\'' +
                 ", isHot='" + isHot + '\'' +
                 ", createTime=" + createTime +
