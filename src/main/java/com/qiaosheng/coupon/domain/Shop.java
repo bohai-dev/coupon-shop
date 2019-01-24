@@ -92,6 +92,8 @@ public class Shop {
     //人均消费
     private String averageConsume;
 
+    private Integer orderValue;
+
     public String getShopId() {
         return shopId;
     }
@@ -359,6 +361,14 @@ public class Shop {
         this.articleUrl = articleUrl;
     }
 
+    public Integer getOrderValue() {
+        return orderValue;
+    }
+
+    public void setOrderValue(Integer orderValue) {
+        this.orderValue = orderValue;
+    }
+
     @Override
     public String toString() {
         return "Shop{" +
@@ -395,6 +405,7 @@ public class Shop {
                 ", couponList=" + couponList +
                 ", shopArea='" + shopArea + '\'' +
                 ", averageConsume='" + averageConsume + '\'' +
+                ", orderValue=" + orderValue +
                 '}';
     }
 }
