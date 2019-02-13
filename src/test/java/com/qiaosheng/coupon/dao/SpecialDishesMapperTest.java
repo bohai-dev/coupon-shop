@@ -26,7 +26,7 @@ public class SpecialDishesMapperTest {
 
     @Test
     public void couponCountTest(){
-        List<CouponCount> list=countMapper.selectCount();
+        List<CouponCount> list=countMapper.selectCount("2019-02-01","2019-02-12");
         System.out.println(list.size());
     }
 
