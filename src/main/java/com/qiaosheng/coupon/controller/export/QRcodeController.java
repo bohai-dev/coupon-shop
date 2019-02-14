@@ -54,10 +54,10 @@ public class QRcodeController {
     }
 
     @RequestMapping("/getwxcode")
-    public void getWxQRcode(@RequestParam("shopId") String shopId, @RequestParam("width") String width, HttpServletResponse httpServletResponse) {
+    public void getWxQRcode(@RequestParam("shopId") String shopId, @RequestParam(value = "width",required = false,defaultValue = "200") String width, HttpServletResponse httpServletResponse) {
         String token=tokenService.getToken();
         System.out.println("取得token:"+token);
-        String codeUrl="https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token="+token;
+        String codeUrl="https://api.weixin.qq.com/wxa/getwxacode?access_token="+token;
         Map<String,String> params=new HashMap<>();
         params.put("path","pages/storeDetail/storeDetail?params="+shopId);
         params.put("width",width);
