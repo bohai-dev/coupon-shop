@@ -72,10 +72,10 @@ public class ShopServiceImpl  implements ShopService {
                 dish.setShopId(shopNo);
                 dish.setIsDelete("0");
 
-                dishesMapper.insertSelective(dish);
+                //dishesMapper.insertSelective(dish);
             }
 
-           // dishesMapper.insertList(specialDishes);
+            dishesMapper.insertList(specialDishes);
         }
 
 

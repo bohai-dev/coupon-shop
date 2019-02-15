@@ -50,10 +50,11 @@ public class ServiceTest {
                 dish.setIsDelete("0");
                 dish.setBackColumn2("");
 
+                specialDishes.add(dish);
                 //dishesMapper.insertSelective(dish);
             }
 
-            dishesMapper.insertList(specialDishes);   //mybatis缓存导致每次都生成相同的序列id
+            dishesMapper.insertList(specialDishes);   //mybatis一级缓存session级别会导致每次都生成相同的序列id，改为statement级别
 
 
     }

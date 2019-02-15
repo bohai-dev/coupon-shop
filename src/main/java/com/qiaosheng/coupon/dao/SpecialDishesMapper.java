@@ -21,6 +21,7 @@ public interface SpecialDishesMapper {
 
     @Select(value="select SPECIAL_DISHES_SEQ.NEXTVAL from dual")
     String generateId();
+
     int insertList(List<SpecialDishes> specialDishes);
 
     @Select("select * from SPECIAL_DISHES where SHOP_ID=#{shopId} AND IS_DELETE='0'")

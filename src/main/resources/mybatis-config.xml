@@ -6,7 +6,9 @@
         
 <configuration>	
   
-    <settings>  
+    <settings>
+		  <!--mybatis一级缓存:共有两个选项，SESSION或者STATEMENT，默认是SESSION级别,即在一个MyBatis会话中执行的所有语句，都会共享这一个缓存。一种是STATEMENT级别，可以理解为缓存只对当前执行的这一个Statement有效-->
+		  <setting name="localCacheScope" value="STATEMENT"/>
            <!--设置启用数据库字段下划线映射到java对象的驼峰式命名属性，默认为false-->  
           <setting name="mapUnderscoreToCamelCase" value="true" />  
      </settings> 
