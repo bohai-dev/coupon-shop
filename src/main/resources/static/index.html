@@ -18,54 +18,20 @@
 				<form action="" id="">
 					<div class="l-srction-tips">基本信息</div>
 					<div class="l-shopInfo">
-						<div class="l-formRowView pr">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>顶部图片</span>
-							<div class="photoUpdata">
-			                    <div style="display: none;">
-				                    <div>
-										<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
-										<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
-										<br/>
-										上传到指定目录:<input type="text" value="shopImg/topImg" id='dirname1' size=50>
-									</div>
-									<h4>您所选择的文件列表：</h4>
-			                    </div>
-			                    <div id="ossfile1">你的浏览器不支持flash,Silverlight或者HTML5！</div>
-			                    <div id="container1">
-									<a id="selectfiles1" href="javascript:void(0);" class='btn'>选择文件</a>
-									<a id="postfiles1" href="javascript:void(0);" class='btn'>开始上传</a>
-									<span class="l-formInputContent">图片大小不可超过1M，否则将选取失败</span>
-								</div>
-								<pre id="console1" style="display: none;"></pre>
-		                    </div>
-						</div>
-						<div class="l-formRowView pr l-formBox marginBotNo paddingTB">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>招牌菜品</span>
-							<div class="photoUpdata">
-			                    <div style="display: none;">
-				                    <div>
-										<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
-										<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
-										<br/>
-										上传到指定目录:<input type="text" value="shopImg" id='dirname' size=50>
-									</div>
-									<h4>您所选择的文件列表：</h4>
-			                    </div>
-			                    <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
-			                    <div id="container">
-									<a id="selectfiles" href="javascript:void(0);" class='btn'>选择文件</a>
-									<a id="postfiles" href="javascript:void(0);" class='btn'>开始上传</a>
-									<span class="l-formInputContent">最多添加9个菜品，图片大小不可超过1M，否则将选取失败</span>
-								</div>
-								<pre id="console" style="display: none;"></pre>
-		                    </div>
-		                    <!--<div class="imgTips">提示：请依次上传图片，暂不支持同时上传。如遇上传失败，删除并重新上传即可。</div>-->
-						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅名称</span>
 							<input class="l-formInput" type="text" onblur="checkWord(40,this)" name="shopName" value="" />
 							<span class="l-formInputContent">限20个字</span>
 							<span class="l-formInputWarning">内容超长，已截取</span>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅地区</span>
+							<select class="l-formSelect" name="shopArea">
+								<option value="0">温哥华</option>
+								<option value="1">本拿比</option>
+								<option value="2">列治文</option>
+								<option value="3">高贵林</option>
+							</select>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅地址</span>
@@ -74,42 +40,52 @@
 							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
-							<span class="l-formTitle redcolor"><span class="l-mustTips">*</span>餐厅简介</span>
-							<textarea class="l-formTextarea" cols="30" rows="3" type="text" onblur="checkWord(400,this)" name="synopsis" value="" ></textarea>
-							<span class="l-formInputContent">限200个字</span>
+							<span class="l-formTitle"><span class="l-mustTips">*</span>联系方式</span>
+							<!--<input class="l-formInput" type="text" onblur="checkWord(200,this);validatePhoneNum(this)" name="contactWay" value="" />-->
+							<input class="l-formMiddleMiniInput" type="text" onblur="" name="contactWay" value="" />-<input style="margin-left: 10px;" class="l-formMiddleMiniInput" type="text" onblur="" name="contactWay" value="" />-<input class="l-formMiddleSmallerInput" type="text" onblur="" name="contactWay" value="" />
+							<span class="l-formInputContent">限填数字</span>
 							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅介绍</span>
-							<textarea class="l-formTextarea" cols="30" rows="3" type="text" onblur="checkWord(800,this)" name="shopIntro" value="" ></textarea>
-							<span class="l-formInputContent">限400个字</span>
+							<span class="l-formTitle"><span class="l-mustTips">*</span>营业时间</span>
+							<input class="l-formInput" type="text" onblur="checkWord(100,this)" name="openTime" value="" />
+							<span class="l-formInputContent">限50个字</span>
 							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>手机 / 电话</span>
-							<input class="l-formInput" type="text" onblur="checkWord(200,this);validatePhoneNum(this)" name="contactWay" value="" />
-							<span class="l-formInputContent">限100个字</span>
-							<span class="l-formInputWarning">内容超长，已截取</span>
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅设施</span>
+							<div class="l-columnView">
+								<div class="l-formInputSmall-box indoorDevice">
+									<div class="l-formInputSmallView">
+										<input class="l-formInputSmall" placeholder="" type="text" name="indoorDevice" value="" />
+										<div class="l-InputSmallClose">x</div>
+									</div>
+								</div>
+								<div class="l-childRowView">
+									<input class="l-smallButton indoorDeviceBtn" type="button" name="" value="+" />
+									<span class="l-formInputWarning">内容超长，已截取</span>
+								</div>
+							</div>
 						</div>
 						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅分类</span>
+							<span class="l-formTitle"><span class="l-mustTips">*</span>美食种类</span>
 							<select class="l-formSelect" name="classId">
-								<option value="0">粤菜经典</option>
-								<option value="1">云贵味道</option>
+								<option value="0">川湘麻辣</option>
+								<option value="1">锅物料理</option>
 								<option value="2">饮品甜点</option>
-								<option value="3">最夯台味</option>
-								<option value="4">正宗北方</option>
-								<option value="5">本帮江浙</option>
-								<option value="6">川湘麻辣</option>
-								<option value="7">国际饭儿</option>
+								<option value="3">北方菜</option>
+								<option value="4">本帮江浙菜</option>
+								<option value="5">小吃简餐</option>
+								<option value="6">国际饭儿</option>
+								<option value="7">粤菜</option>
+								<option value="8">面食</option>
 							</select>
 						</div>
 						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>人气商家</span>
-							<select class="l-formSelect" name="isHot">
-								<option value="0">否</option>
-								<option value="1">是</option>
-							</select>
+							<span class="l-formTitle"><span class="l-mustTips">*</span>人均消费</span>
+							<input class="l-formInput" type="number" onblur="" name="averageConsume" value="" />
+							<span class="l-formInputContent">/ 人，限填数字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅标签</span>
@@ -127,6 +103,51 @@
 							</div>
 						</div>
 						<div class="l-formRowView">
+							<span class="l-formTitle redcolor"><span class="l-mustTips">*</span>餐厅简介</span>
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" onblur="checkWord(400,this)" name="synopsis" value="" ></textarea>
+							<span class="l-formInputContent">限200个字</span>
+							<span class="l-formInputWarning">内容超长，已截取</span>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅介绍</span>
+							<!--<div class="l-formTextDiv shopIntro" contenteditable="true"></div>-->
+							<textarea class="l-formTextarea" cols="30" rows="3" type="text" onblur="checkWord(800,this)" name="shopIntro" value="" ></textarea>
+							<!--<span class="l-formInputContent">限400个字</span>-->
+							<!--<div class="l-formRowView pr">
+								<div>
+				                    <div style="display: none;">
+					                    <div>
+											<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
+											<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
+											<br/>
+											上传到指定目录:<input type="text" value="shopImg/introImg" id='dirname3' size=50>
+										</div>
+										<h4>您所选择的文件列表：</h4>
+				                    </div>
+				                    <div id="ossfile3">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+				                    <div id="container3" style="display: flex;flex-direction: column;">
+										<a id="selectfiles3" href="javascript:void(0);" class='btn' style="width: 82px;">插入图片</a>
+										<a id="postfiles3" href="javascript:void(0);" class='btn' style="width: 82px;margin: 5px 0;">开始上传</a>
+										<span class="l-formInputContent">图片大小不可超过1M，否则将选取失败</span>
+									</div>
+									<pre id="console3" style="display: none;"></pre>
+			                    </div>
+							</div>-->
+							<span class="l-formInputWarning">内容超长，已截取</span>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>人气商家</span>
+							<select class="l-formSelect" name="isHot">
+								<option value="0">否</option>
+								<option value="1">是</option>
+							</select>
+						</div>
+						<div class="l-formRowView">
+							<span class="l-formTitle">排序值</span>
+							<input class="l-formInput" type="number" onblur="" name="orderValue" value="" />
+							<span class="l-formInputContent">限填数字</span>
+						</div>
+						<div class="l-formRowView">
 							<span class="l-formTitle">经度</span>
 							<input class="l-formInput" type="number" name="longitude" value="" />
 						</div>
@@ -135,7 +156,83 @@
 							<input class="l-formInput" type="number" name="latitude" value="" />
 						</div>
 					</div>
-					<div class="l-srction-tips">转YOYO分享优惠</div>
+					<div class="l-srction-tips">餐厅顶图</div>
+					<div class="l-shopInfo">
+						<div class="l-formRowView pr">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>顶部图片</span>
+							<div class="photoUpdata">
+			                    <div style="display: none;">
+				                    <div>
+										<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
+										<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
+										<br/>
+										上传到指定目录:<input type="text" value="shopImg/topImg" id='dirname1' size=50>
+									</div>
+									<h4>您所选择的文件列表：</h4>
+			                    </div>
+			                    <div id="ossfile1">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+			                    <div id="container1" style="display: flex;flex-direction: column;">
+									<a id="selectfiles1" href="javascript:void(0);" class='selectionBox'>+</a>
+									<a id="postfiles1" href="javascript:void(0);" class='btn btnBig'>上传</a>
+									<span class="l-formInputContent">图片大小不可超过1M，否则将选取失败</span>
+								</div>
+								<pre id="console1" style="display: none;"></pre>
+		                    </div>
+						</div>
+					</div>
+					<div class="l-srction-tips">商家详情方形图</div>
+					<div class="l-shopInfo">
+						<div class="l-formRowView pr">
+							<span class="l-formTitle"><span class="l-mustTips">*</span>商家详情图</span>
+							<div class="photoUpdata">
+			                    <div style="display: none;">
+				                    <div>
+										<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
+										<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
+										<br/>
+										上传到指定目录:<input type="text" value="shopImg/introImages" id='dirname4' size=50>
+									</div>
+									<h4>您所选择的文件列表：</h4>
+			                    </div>
+			                    <div id="ossfile4">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+			                    <div id="container4" style="display: flex;flex-direction: column;">
+									<a id="selectfiles4" href="javascript:void(0);" class='selectionBox'>+</a>
+									<a id="postfiles4" href="javascript:void(0);" class='btn btnBig'>上传</a>
+									<span class="l-formInputContent">图片大小不可超过1M，否则将选取失败</span>
+								</div>
+								<pre id="console4" style="display: none;"></pre>
+		                    </div>
+						</div>
+					</div>
+					<div class="l-srction-tips">特色推荐</div>
+					<div class="l-shopInfo">
+						<div id="dishesImg" class="l-formRowView pr borderBox marginNo paddingTB">
+							<!--<span class="l-formTitle"><span class="l-mustTips">*</span>招牌菜品</span>-->
+							<div class="imgBox"></div>
+							<div class="imgBox1"></div>
+							<div class="imgBox2"></div>
+							<div class="">
+			                    <div style="display: none;">
+				                    <div>
+										<input type="radio" name="myradio" value="local_name"/> 上传文件名字保持本地文件名字
+										<input type="radio" name="myradio" value="random_name" checked=true/> 上传文件名字是随机文件名
+										<br/>
+										上传到指定目录:<input type="text" value="shopImg" id='dirname' size=50>
+									</div>
+									<h4>您所选择的文件列表：</h4>
+			                    </div>
+			                    <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+			                    <div id="container"  style="display: flex;flex-direction: column;">
+									<a id="selectfiles" href="javascript:void(0);" class='selectionBox'>+</a>
+									<a id="postfiles" href="javascript:void(0);" class='btn btnBig'>上传</a>
+									<!--<span class="l-formInputContent">最多添加9个菜品，图片大小不可超过1M，否则将选取失败</span>-->
+								</div>
+								<pre id="console" style="display: none;"></pre>
+		                    </div>
+						</div>
+						<span class="l-formInputContent" style="margin-top: 5px;">最多添加9个菜品，图片大小不可超过1M，否则将选取失败</span>
+					</div>
+					<div class="l-srction-tips">转发优惠</div>
 					<div class="l-shopInfo">
 						<div class="l-formBox">
 							<span class="l-formCloseBtn">删除</span>
@@ -175,41 +272,15 @@
 							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
 					</div>
-					<div class="l-srction-tips">店内用餐</div>
+					<!--<div class="l-srction-tips">店内用餐</div>
 					<div class="l-shopInfo">
-						<div class="l-formRowView">
-							<span class="l-formTitle"><span class="l-mustTips">*</span>营业时间</span>
-							<input class="l-formInput" type="text" onblur="checkWord(100,this)" name="openTime" value="" />
-							<span class="l-formInputContent">限50个字</span>
-							<span class="l-formInputWarning">内容超长，已截取</span>
-						</div>
 						<div class="l-formRowView">
 							<span class="l-formTitle redcolor">用餐高峰</span>
 							<input class="l-formInput" type="text" onblur="checkWord(100,this)" name="heightTime" value="" />
 							<span class="l-formInputContent">限50个字</span>
 							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
-						<div class="l-formRowView">
-							<!--<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅设施</span>
-							<input class="l-formInput" type="text" onblur="checkWord(200,this)" name="indoorDevice" value="" />
-							<span class="l-formInputContent">限100个字</span>
-							<span class="l-formInputWarning">内容超长，已截取</span>-->
-							
-							<span class="l-formTitle"><span class="l-mustTips">*</span>餐厅设施</span>
-							<div class="l-columnView">
-								<div class="l-formInputSmall-box indoorDevice">
-									<div class="l-formInputSmallView">
-										<input class="l-formInputSmall" onblur="checkWord(12,this)" placeholder="限六个字" type="text" name="indoorDevice" value="" />
-										<div class="l-InputSmallClose">x</div>
-									</div>
-								</div>
-								<div class="l-childRowView">
-									<input class="l-smallButton indoorDeviceBtn" type="button" name="" value="+" />
-									<span class="l-formInputWarning">内容超长，已截取</span>
-								</div>
-							</div>
-						</div>
-					</div>
+					</div>-->
 					<div class="l-srction-tips">分享卡</div>
 					<div class="l-shopInfo">
 						<div class="l-formRowView">
@@ -231,9 +302,9 @@
 									<h4>您所选择的文件列表：</h4>
 			                    </div>
 			                    <div id="ossfile2">你的浏览器不支持flash,Silverlight或者HTML5！</div>
-			                    <div id="container2">
-									<a id="selectfiles2" href="javascript:void(0);" class='btn'>选择文件</a>
-									<a id="postfiles2" href="javascript:void(0);" class='btn'>开始上传</a>
+			                    <div id="container2" style="display: flex;flex-direction: column;">
+									<a id="selectfiles2" href="javascript:void(0);" class='selectionBox selectionBoxBig'>+</a>
+									<a id="postfiles2" href="javascript:void(0);" class='btn btnBig'>上传</a>
 									<span class="l-formInputContent">图片大小不可超过1M，否则将选取失败</span>
 								</div>
 								<pre id="console2" style="display: none;"></pre>
@@ -246,19 +317,26 @@
 							<span class="l-formTitle">特色介绍</span>
 							<textarea class="l-formTextarea" cols="30" rows="3" type="text" name="shopActivity" value="" ></textarea>
 						</div>-->
-						<div class="l-formRowView">
+						<!--<div class="l-formRowView">
 							<span class="l-formTitle redcolor">流动标题</span>
 							<input class="l-formInput" type="text" onblur="checkWord(20,this)" name="flowTitle" value="" />
 							<span class="l-formInputContent">限10个字</span>
 							<span class="l-formInputWarning">内容超长，已截取</span>
-						</div>
+						</div>-->
 						<div class="l-formRowView">
-							<span class="l-formTitle">流动内容</span>
+							<span class="l-formTitle">TIPS</span>
 							<textarea class="l-formTextarea" type="text" onblur="checkWord(400,this)" name="flowContent" value="" /></textarea>
 							<span class="l-formInputContent">限200个字</span>
 							<span class="l-formInputWarning">内容超长，已截取</span>
 						</div>
-						<div class="qrcode">
+					</div>
+					<div class="l-srction-tips">微信相关</div>
+					<div class="l-shopInfo">
+						<div class="l-formRowView">
+							<span class="l-formTitle">公众号文章地址</span>
+							<input class="l-formInput" type="text" name="articleUrl" value="" />
+						</div>
+						<!--<div class="qrcode">
 							<div class="l-formRowView">
 								<span class="l-formTitle redcolor">二维码宽度</span>
 								<input class="l-formInputSmall marginBotNo" type="number" placeholder="100~800" name="qrcode" value="" />
@@ -268,7 +346,7 @@
 								<span class="l-formTitle"></span>
 								<img class="qrcodeImg" src=""/>
 							</div>
-						</div>
+						</div>-->
 						<div class="xcxcode">
 							<div class="l-formRowView">
 								<span class="l-formTitle">小程序码宽度</span>

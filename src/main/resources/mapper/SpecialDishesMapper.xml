@@ -85,19 +85,19 @@
         insert into SPECIAL_DISHES
         (
         DISH_ID, SHOP_ID, IMAGE_PATH, DISH_PRICE, DISH_NAME,
-        IS_DELETE, DISH_UNIT, BACK_COLUMN2
+        IS_DELETE,DISH_UNIT, BACK_COLUMN2
 
         )
         <foreach item="item" index="index" collection="list" separator="union all">
             ( SELECT
-            #{item.dishId},
-            #{item.shopId},
-            #{item.imagePath},
-            #{item.dishPrice},
-            #{item.dishName},
-            #{item.isDelete},
-            #{item.dishUnit},
-            #{item.backColumn2}
+            #{item.dishId,jdbcType=VARCHAR},
+            #{item.shopId,jdbcType=VARCHAR},
+            #{item.imagePath,jdbcType=VARCHAR},
+            #{item.dishPrice,jdbcType=VARCHAR},
+            #{item.dishName,jdbcType=VARCHAR},
+            #{item.isDelete,jdbcType=VARCHAR},
+            #{item.dishUnit,jdbcType=VARCHAR},
+            #{item.backColumn2,jdbcType=VARCHAR}
             FROM DUAL
             )
         </foreach>

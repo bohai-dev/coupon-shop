@@ -4,9 +4,20 @@
 		<meta charset="UTF-8">
 		<title>消费者小程序-后台管理-重置转发状态</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/lhgcalendar.css"/>
 		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/reset.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lhgcore.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lhgcalendar.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		J(function(){
+			J('#cal1').calendar({ maxDate:'#cal2'});
+			J('#cal2').calendar({ minDate:'#cal1'});
+			J('#cal3').calendar({ maxDate:'#cal4'});
+			J('#cal4').calendar({ minDate:'#cal3'});
+		});
+	</script>
 	</head>
 	<body>
 		<!--重置转发状态-->
@@ -17,6 +28,11 @@
 					<input class="l-formSubmitBtn l-resetSubmitBtn" type="button" value="重置转发状态"/>
 				</div>
 				<div class="l-srction-tips">优惠券兑换统计</div>
+				<div class="l-resetSearch">
+					<input class="l-formMiddleSmallerInput" type="text" id="cal1" name="couponStartTime" readonly="readonly"/>
+					<input class="l-formMiddleSmallerInput" type="text" id="cal2" name="couponEndTime" readonly="readonly"/>
+					<input class="l-searchButton couponSearch" type="button" name="" value="点击搜索" />
+				</div>
 				<div class="l-resetInfo">
 					<table border="1" class="table">
 						<tr class="tableTitle">
@@ -33,10 +49,15 @@
 	    			</table>
     			</div>
 				<div class="l-srction-tips">点击量统计</div>
+				<div class="l-resetSearch">
+					<input class="l-formMiddleSmallerInput" type="text" id="cal3" name="clickStartTime" readonly="readonly"/>
+					<input class="l-formMiddleSmallerInput" type="text" id="cal4" name="clickEndTime" readonly="readonly"/>
+					<input class="l-searchButton clickSearch" type="button" name="" value="点击搜索" />
+				</div>
 				<div class="l-resetInfo">
 					<table border="1" class="table">
 						<tr class="tableTitle">
-							<th>店铺编号</th><th>店铺名称</th><th>详情页浏览量</th><th>转发按钮点击量</th><th>分享卡点击量</th>
+							<th>店铺编号</th><th>店铺名称</th><th>详情页浏览总量</th><th>转发按钮点击量</th><th>分享卡点击量</th>
 						<tr v-for="item in clickCount">
 							<td>{{item.shopId}}</td>
 							<td>{{item.shopName}}</td>
@@ -49,6 +70,11 @@
 						</tr>
 	    			</table>
     			</div>
+				<div style="margin-left: 50px;">
+					<p>备注：</p>
+					<p>1、“详情页浏览总量”自发布之日起计算，与选择日期无关</p>
+					<p>2、“分享卡点击量”是指用户分享店铺信息给微信好友或者微信群后，分享信息被成功点击的次数，同一家店铺同一日同一个用户的有效点击次数最多为1，也就是说同一天同一个用户点击了同一个分享信息多次，但这家店铺的“分享卡点击量”只会加1。</p>
+				</div>
 			</div>
 		</div>
 		<!--提示框-->
