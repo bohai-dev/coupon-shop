@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiaosheng.coupon.dao.ShopNoticeMapper">
+  <resultMap id="BaseResultMap" type="com.qiaosheng.coupon.domain.ShopNotice">
+    <id column="NOTICE_ID" jdbcType="VARCHAR" property="noticeId" />
+    <result column="NOTICE_CONTENT" jdbcType="VARCHAR" property="noticeContent" />
+    <result column="SHOP_ID" jdbcType="VARCHAR" property="shopId" />
+    <result column="IS_DELETE" jdbcType="DECIMAL" property="isDelete" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="BACK_COLUMN" jdbcType="VARCHAR" property="backColumn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NOTICE_ID, NOTICE_CONTENT, SHOP_ID, IS_DELETE, CREATE_TIME, UPDATE_TIME, BACK_COLUMN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SHOP_NOTICE
+    where NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SHOP_NOTICE
+    where NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.qiaosheng.coupon.domain.ShopNotice">
+    insert into SHOP_NOTICE (NOTICE_ID, NOTICE_CONTENT, SHOP_ID, 
+      IS_DELETE, CREATE_TIME, UPDATE_TIME, 
+      BACK_COLUMN)
+    values (#{noticeId,jdbcType=VARCHAR}, #{noticeContent,jdbcType=VARCHAR}, #{shopId,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{backColumn,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertList" parameterType="List">
+    insert into SHOP_NOTICE
+    (
+    NOTICE_ID, NOTICE_CONTENT, SHOP_ID,
+    IS_DELETE, CREATE_TIME, UPDATE_TIME,
+    BACK_COLUMN
+
+    )
+    <foreach item="item" index="index" collection="list" separator="union all">
+      ( SELECT
+      #{item.noticeId,jdbcType=VARCHAR},
+      #{item.noticeContent,jdbcType=VARCHAR},
+      #{item.shopId,jdbcType=VARCHAR},
+      #{item.isDelete,jdbcType=VARCHAR},
+      #{item.createTime,jdbcType=TIMESTAMP},
+      #{item.updateTime,jdbcType=TIMESTAMP},
+      #{item.backColumn,jdbcType=VARCHAR}
+      FROM DUAL
+      )
+    </foreach>
+
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.qiaosheng.coupon.domain.ShopNotice">
+    insert into SHOP_NOTICE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeId != null">
+        NOTICE_ID,
+      </if>
+      <if test="noticeContent != null">
+        NOTICE_CONTENT,
+      </if>
+      <if test="shopId != null">
+        SHOP_ID,
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="backColumn != null">
+        BACK_COLUMN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeId != null">
+        #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeContent != null">
+        #{noticeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backColumn != null">
+        #{backColumn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qiaosheng.coupon.domain.ShopNotice">
+    update SHOP_NOTICE
+    <set>
+      <if test="noticeContent != null">
+        NOTICE_CONTENT = #{noticeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null">
+        SHOP_ID = #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE = #{isDelete,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backColumn != null">
+        BACK_COLUMN = #{backColumn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qiaosheng.coupon.domain.ShopNotice">
+    update SHOP_NOTICE
+    set NOTICE_CONTENT = #{noticeContent,jdbcType=VARCHAR},
+      SHOP_ID = #{shopId,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      BACK_COLUMN = #{backColumn,jdbcType=VARCHAR}
+    where NOTICE_ID = #{noticeId,jdbcType=VARCHAR}
+  </update>
+
+</mapper>
