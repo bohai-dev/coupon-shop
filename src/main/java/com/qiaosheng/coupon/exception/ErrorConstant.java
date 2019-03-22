@@ -14,9 +14,8 @@ public enum ErrorConstant {
     USER_ID_REQUIRED("0004","userId不能为空"),
     SHOP_ID_REQUIRED("0005","shopId不能为空"),
     COUPON_ID_REQUIRED("0006","couponId不能为空"),
-
     LOGIN_CHECK_ERROR("0007","登录验证错误"),
-
+    NOTICE_ID_REQUIRED("0008","noticeId不能为空"),
 
 
 

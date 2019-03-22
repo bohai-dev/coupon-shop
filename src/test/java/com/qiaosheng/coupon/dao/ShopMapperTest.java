@@ -28,6 +28,7 @@ public class ShopMapperTest {
     @Autowired
     CouponMapper couponMapper;
 
+
     @Test
     public void generateUserIdTest(){
 

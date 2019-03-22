@@ -1,5 +1,8 @@
 package com.qiaosheng.coupon.utils;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
+import javax.annotation.Generated;
 import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.UUID;
@@ -34,6 +37,15 @@ public class CommonUtils {
         String number=str+randomStr;
         System.out.println(number);
         return  number;
+    }
+
+
+    /**
+     * 生成5位的id
+     * @return
+     */
+    public static String generateId(){
+      return RandomStringUtils.random(5,true,true);
     }
 
 }

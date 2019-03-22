@@ -1,6 +1,9 @@
 package com.qiaosheng.coupon.controller.export;
 
 import com.qiaosheng.coupon.dao.GetPointRecordMapper;
+import com.qiaosheng.coupon.exception.CouponException;
+import com.qiaosheng.coupon.exception.ErrorConstant;
+import com.qiaosheng.coupon.utils.HttpUtil;
 import com.qiaosheng.coupon.vo.ResponseHeader;
 import com.qiaosheng.coupon.vo.ReturnBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +25,20 @@ public class GetPointRecordController {
 
 
     @GetMapping("/resetstatus")
-    public ResponseHeader resetStatus(){
-       int count=pointRecordMapper.resetStatus();
+    public ResponseHeader resetStatus() throws CouponException{
 
-       ResponseHeader responseHeader=new ResponseHeader();
+
+        ResponseHeader responseHeader=new ResponseHeader();
+         //转发状态重置
+        int count=pointRecordMapper.resetStatus();
+        //长图保存状态重置
+       /* String shareUrl="https://www.95cfun.cn/custShare/updShareStatue?shareStyle=05";
+        try {
+            String result=HttpUtil.get(shareUrl);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new CouponException(ErrorConstant.UNKNOW_EXCEPTION);
+        }*/
 
        return responseHeader;
     }
