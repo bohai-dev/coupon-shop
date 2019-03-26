@@ -47,7 +47,7 @@
 
 
 
-		<table schema="" tableName="SPECIAL_DISHES" domainObjectName="SpecialDishes"
+		<table schema="" tableName="SHOP_NOTICE" domainObjectName="ShopNotice"
 			enableSelectByExample="false" enableDeleteByExample="false"
 			enableCountByExample="false" enableUpdateByExample="false"
 			selectByExampleQueryId="false">

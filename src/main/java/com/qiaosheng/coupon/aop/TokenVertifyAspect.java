@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * token 验证切面
  */
 @Component
-@Aspect
+//@Aspect
 @Order(1)   //值越小，优先级越高
 public class TokenVertifyAspect {
     
