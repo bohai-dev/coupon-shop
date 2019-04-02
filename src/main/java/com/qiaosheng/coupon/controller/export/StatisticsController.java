@@ -19,6 +19,10 @@ public class StatisticsController {
     @Autowired
     CouponCountMapper countMapper;
 
+    /**
+     * 统计优惠券兑换数量
+     * @return
+     */
     @RequestMapping("/statistics")
     public ReturnBody<List<CouponCount>> couponStatistics(@RequestParam("startTime")String startTime, @RequestParam("endTime")String endTime){
         ReturnBody<List<CouponCount>> returnBody=new ReturnBody<>();
@@ -30,6 +34,10 @@ public class StatisticsController {
 
     }
 
+    /**
+     * 统计各店铺详情页浏览量、转发按钮点击量、分享卡点击量
+     * @return
+     */
     @GetMapping("/statistics/clickcount")
     public ReturnBody<List<CouponCount>> clickCount(@RequestParam("startTime")String startTime, @RequestParam("endTime")String endTime){
         ReturnBody<List<CouponCount>> returnBody=new ReturnBody<>();

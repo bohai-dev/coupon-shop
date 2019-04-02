@@ -226,6 +226,11 @@ color: #ddd;
     color: white;
     cursor: pointer;
 }
+.l-btnBox .yes{
+	margin:0 30px;
+}.l-btnBox .no{
+    background:#999999;
+}
 /*上传图片*/
 .btn{
     color: #fff;
@@ -735,27 +740,24 @@ a.btn:hover{
 	font-weight: 600;
 	font-size: 20px;	
 }
-/*删除图标*/
-.notice_del{
+/*删除保存按钮*/
+.notice_btn{
 	width:60px;
 	height:30px;
 	line-height: 30px;	
 	text-align: center;
-	background: #FF0000;
 	color: #FFFFFF;
-	border-radius: 20%;
+	border-radius: 15px;
 	margin-right: 10px;
 	cursor: pointer;
+	font-size:14px;
+	opacity: .95;
+}
+.notice_del{
+	background: #FF0000;	
 }
 .notice_sav{
-	width:60px;
-	height:30px;
-	line-height: 30px;
-	text-align: center;	
-	background:darkturquoise;
-	color: #FFFFFF;
-	border-radius: 20%;
-	cursor: pointer;	
+	background:darkturquoise;	
 }
 .new_notice{
 	padding-left:inherit;
