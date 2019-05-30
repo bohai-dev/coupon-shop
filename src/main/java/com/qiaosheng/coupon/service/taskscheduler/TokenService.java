@@ -35,7 +35,7 @@ public class TokenService {
             JSONObject jsonObject=JSON.parseObject(result);
             String errorCode=jsonObject.getString("errcode");
             if (StringUtils.isEmpty(errorCode)){
-                String token=jsonObject.getString("access_token");
+                String token=jsonObject.getString("access_token");   //7200秒过期
                 this.token=token;
             }else {
                 //获取错误信息

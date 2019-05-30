@@ -1,6 +1,8 @@
 package com.qiaosheng.coupon.controller;
 
-import com.qiaosheng.coupon.domain.AdminUser;
+import
+
+        com.qiaosheng.coupon.domain.AdminUser;
 import com.qiaosheng.coupon.exception.CouponException;
 import com.qiaosheng.coupon.exception.ErrorConstant;
 import com.qiaosheng.coupon.service.AdminUserService;

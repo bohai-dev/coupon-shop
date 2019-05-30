@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * Created by cxy on 2018/11/28
  */
-@Configuration
+//@Configuration
 @ComponentScan("com.qiaosheng.coupon.service.taskscheduler")
 @EnableScheduling    //开启对计划任务的支持
 public class TaskSchedulerConfig {
